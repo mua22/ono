@@ -11,6 +11,20 @@
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('welcome');
+});
+*/
+
+Route::get('/',['as'=>'home','uses'=>'SiteController']);
+Route::get('/directory/{slug}','Site\DirectoryController@show');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');
+Route::resource('fields','Backend\FieldController');
+
+
+Route::group(['prefix' => 'admin'], function () {
+    Route::resource('directory','Admin\DirectoryController');
+    Route::get('/','Admin\DashboardController');
 });

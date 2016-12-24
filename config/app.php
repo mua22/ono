@@ -166,7 +166,7 @@ return [
         /*
          * Package Service Providers...
          */
-
+        Cviebrock\EloquentSluggable\ServiceProvider::class,
         //
 
         /*
@@ -177,6 +177,10 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+
+        //OnoServiceProviders
+
+        App\Providers\ComposerServiceProvider::class,
 
     ],
 

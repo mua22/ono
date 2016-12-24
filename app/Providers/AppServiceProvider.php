@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Field;
+use App\Observers\FieldObserver;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -13,7 +15,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        //dd('Calling Fields from Boot');
+        Field::observe(FieldObserver::class);
     }
 
     /**
