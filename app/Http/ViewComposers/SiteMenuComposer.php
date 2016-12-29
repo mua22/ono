@@ -18,6 +18,7 @@ class SiteMenuComposer
     public function compose(View $view)
     {
         $directories = Directory::all();
+        //$directories = array();
         $view->with(compact('directories'));
     }
 }

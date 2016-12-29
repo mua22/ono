@@ -41,7 +41,7 @@
 
     <title>OnoAdmin:</title>
 </head>
-<body class="hold-transition skin-blue sidebar-mini">
+<body class="hold-transition sidebar-mini layout-boxed skin-red-light">
 <div class="wrapper">
 
     <header class="main-header">
@@ -328,18 +328,16 @@
                 <li><a href="{{route('admin.dashboard')}}"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
 
 
-                <li class="treeview">
+                <li class="treeview active">
                     <a href="#">
                         <i class="fa fa-edit"></i>
                         <span>Setup Listings</span>
                         <i class="fa fa-angle-left pull-right"></i>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="../charts/chartjs.html"><i class="fa fa-circle-o"></i> Directories Manager</a></li>
-                        <li><a href="../charts/morris.html"><i class="fa fa-circle-o"></i> Fields Manager</a></li>
-                        <li><a href="../charts/flot.html"><i class="fa fa-circle-o"></i> Flot</a></li>
-                        <li><a href="../charts/inline.html"><i class="fa fa-circle-o"></i> Inline charts</a></li>
-                        <li><a href="../layout/collapsed-sidebar.html"><i class="fa fa-circle-o"></i> Collapsed Sidebar</a></li>
+                        <li><a href="../charts/chartjs.html"><i class="fa fa-folder-o"></i> Directories Manager</a></li>
+                        <li><a href="{{route('fields.index')}}"><i class="fa fa-circle-o"></i> Fields Manager</a></li>
+
                     </ul>
                 </li>
                 <li class="treeview">
@@ -349,8 +347,9 @@
                         <i class="fa fa-angle-left pull-right"></i>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="../UI/general.html"><i class="fa fa-circle-o"></i> General</a></li>
-                        <li><a href="../UI/icons.html"><i class="fa fa-circle-o"></i> Icons</a></li>
+                        <li><a href="../UI/icons.html"><i class="fa fa-circle-o"></i> Add New User</a></li>
+                        <li><a href="../UI/general.html"><i class="fa fa-circle-o"></i> Manage Users</a></li>
+
                         <li><a href="../UI/buttons.html"><i class="fa fa-circle-o"></i> Buttons</a></li>
                         <li><a href="../UI/sliders.html"><i class="fa fa-circle-o"></i> Sliders</a></li>
                         <li><a href="../UI/timeline.html"><i class="fa fa-circle-o"></i> Timeline</a></li>
@@ -368,7 +367,7 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
 
-                @yield('title')
+               <h1>{{$page_title}}</h1>
 
             <ol class="breadcrumb">
                 <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>

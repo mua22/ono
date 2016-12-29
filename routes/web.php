@@ -21,10 +21,9 @@ Route::get('/directory/{slug}','Site\DirectoryController@show');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
-Route::resource('fields','Backend\FieldController');
-
 
 Route::group(['prefix' => 'admin'], function () {
     Route::resource('directory','Admin\DirectoryController');
     Route::get('/',['as'=>'admin.dashboard','uses'=>'Admin\DashboardController']);
+    Route::resource('fields','Admin\FieldsController');
 });
