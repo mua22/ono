@@ -167,7 +167,7 @@ return [
          * Package Service Providers...
          */
         Cviebrock\EloquentSluggable\ServiceProvider::class, //provider for slugging
-
+        Barryvdh\Debugbar\ServiceProvider::class, // provider for debugger
         //
 
         /*
@@ -230,7 +230,7 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-
+        'Debugbar' => Barryvdh\Debugbar\Facade::class,
     ],
 
 ];
