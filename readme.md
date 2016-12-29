@@ -18,12 +18,11 @@ Now you can access your project at localhost:8000
 
     username: admin@admin.com
     password: admin
+    
 ###Pre Requisites
 php and composer should be installed and setup in path variables.
 ##Contact Me
  You can contact me at 'musmanakram at ciitlahore dot edu dot pk' or at http://www.usman-blog.com 
- 
- Demo available at articles.usman-blog.com 
  
  
  

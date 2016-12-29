@@ -26,5 +26,5 @@ Route::resource('fields','Backend\FieldController');
 
 Route::group(['prefix' => 'admin'], function () {
     Route::resource('directory','Admin\DirectoryController');
-    Route::get('/','Admin\DashboardController');
+    Route::get('/',['as'=>'admin.dashboard','uses'=>'Admin\DashboardController']);
 });
