@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Field;
+use App\Setting;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 

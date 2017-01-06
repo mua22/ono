@@ -2,12 +2,30 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Field;
+use App\Common\SettingsFileLoader;
+use App\Setting;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Config;
 
-class FieldsController extends AdminAppController
+class SettingsController extends AdminAppController
 {
+    public function prefix($prefix='Site')
+    {
+        $settings = Setting::where(['prefix'=>$prefix,'editable'=>'1'])->get();
+        $this->page_title($prefix.": Settings");
+        return view('admin.settings.prefix')->with(compact('settings'));
+    }
+
+    public function storePrefix(Request $request)
+    {
+        foreach($request->settings as $key=>$value){
+            $setting = Setting::where('key',$key)->first();
+            $setting->value = $value;
+            $setting->save();
+        }
+        return redirect(route('settings.prefix',$setting->prefix));
+    }
     /**
      * Display a listing of the resource.
      *
@@ -15,9 +33,10 @@ class FieldsController extends AdminAppController
      */
     public function index()
     {
-        $this->page_title('Fields Manager');
-        $fields = Field::paginate(10);
-        return view('admin.fields.index')->with(compact('fields'));
+        $settingsLoader = new SettingsFileLoader();
+        $settings = Setting::where('prefix','Site')->get();
+        //return $settingsLoader->save('Site',$settings);
+        return Config::get('Site.title');
     }
 
     /**
@@ -27,8 +46,7 @@ class FieldsController extends AdminAppController
      */
     public function create()
     {
-        $this->page_title('Create New Fields');
-        return view('admin.fields.create');
+        //
     }
 
     /**
@@ -39,10 +57,7 @@ class FieldsController extends AdminAppController
      */
     public function store(Request $request)
     {
-        $field = new Field();
-        $field->title = $request->title;
-        $field->save();
-        return redirect(route('fields.create'));
+        //
     }
 
     /**
@@ -64,9 +79,7 @@ class FieldsController extends AdminAppController
      */
     public function edit($id)
     {
-        $field = Field::findOrFail($id);
-        $this->page_title("Field Editing: ".$field->title );
-        return view('admin.fields.edit')->with(compact('field'));
+        //
     }
 
     /**
@@ -89,8 +102,6 @@ class FieldsController extends AdminAppController
      */
     public function destroy($id)
     {
-        $field = Field::find($id);
-        $field->delete();
-        return redirect(route('fields.index'));
+        //
     }
 }

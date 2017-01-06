@@ -356,6 +356,18 @@
                         <li><a href="../UI/modals.html"><i class="fa fa-circle-o"></i> Modals</a></li>
                     </ul>
                 </li>
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-cogs"></i>
+                        <span>Settings</span>
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    <ul class="treeview-menu">
+                        @foreach($setting_prefixes as $prefix)
+                            <li><a href="{{route('settings.prefix',$prefix->prefix)}}"><i class="fa fa-cog"></i>{{$prefix->prefix}}</a></li>
+                        @endforeach
+                    </ul>
+                </li>
 
             </ul>
         </section>
@@ -597,6 +609,17 @@
 <script src="/AdminLTE/dist/js/app.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="/AdminLTE/dist/js/demo.js"></script>
+<script>
+    $(window).load(function(){
+        var url = window.location.href;
+        $('.sidebar-menu').find('.active').removeClass('active');
+        var link = $('.sidebar-menu li a').filter(function(){
+            return this.href == url;
+        });
+        link.parent().addClass('active');
+        link.parent().parent().parent().addClass('active');
+    });
+</script>
 </body>
 </html>
 

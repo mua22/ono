@@ -9,6 +9,7 @@ class AdminAppController extends Controller
 {
     //private $title = '';
 
+
     protected function page_title($title = '')
     {
      //$this->title = $title;

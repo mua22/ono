@@ -4,13 +4,13 @@
 
     <div class="box box-primary">
         <div class="box-header with-border">
-            <h3 class="box-title">Edit Fields</h3>
+            <h3 class="box-title">New Fields</h3>
         </div>
 
-        @include('admin.fields._form',compact('field'))
+            @include('admin.fields._form')
 
     </div>
 
 
 
-@endsection
+    @endsection

@@ -16,7 +16,11 @@
                             <td class="text-right">
                                 <div class="margin">
                                     <a href="{{route('fields.edit',$field)}}" class="btn btn-info btn-flat"><i class="fa fa-edit"></i>Edit</a>
-                                    <a href="{{route('fields.destroy',$field->id)}}" class="btn btn-danger btn-flat"><i class="fa fa-"></i>Delete</a>
+                                    <form action="{{route('fields.destroy',$field->id)}}" method="delete" style="display: inline;">
+                                        
+                                        <button type="submit" class="btn btn-danger btn-flat"><i class="fa fa-"></i>Delete</button>
+                                    </form>
+
                                 </div>
 
                             </td>
