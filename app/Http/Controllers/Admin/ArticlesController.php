@@ -6,17 +6,18 @@ use App\Directory;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class DirectoryController extends AdminAppController
+
+class ArticlesController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($direcory_slug)
     {
-        $directories = Directory::all();
-        return view('admin.directory.index')->with(compact('directories'));
+        $directory = Directory::findBySlug($direcory_slug);
+        return view('admin.articles.index')->with(compact('directory'));
     }
 
     /**

@@ -31,4 +31,7 @@ Route::group(['prefix' => 'admin'], function () {
     Route::resource('settings','Admin\SettingsController');
 
     Route::get('directory-types',['as'=>'directory.type.index','uses'=>'Admin\DirectoryTypeController@index']);
+
+    Route::get('/{directory_slug}/categories',['as'=>'admin.categories','uses'=>'Admin\CategoriesController@index']);
+    Route::get('/{directory_slug}/listings',['as'=>'admin.listings','uses'=>'Admin\ArticlesController@index']);
 });

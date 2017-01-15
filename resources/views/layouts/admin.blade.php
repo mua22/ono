@@ -68,64 +68,7 @@
     <!-- Left side column. contains the logo and sidebar -->
     <aside class="main-sidebar">
         <!-- sidebar: style can be found in sidebar.less -->
-        <section class="sidebar">
-            <!-- Sidebar user panel -->
-            <div class="user-panel">
-                <div class="pull-left image">
-                    <img src="/AdminLTE/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
-                </div>
-                <div class="pull-left info">
-                    <p>Alexander Pierce</p>
-                    <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
-                </div>
-            </div>
-
-            <!-- sidebar menu: : style can be found in sidebar.less -->
-            <ul class="sidebar-menu">
-                <li class="header">MAIN NAVIGATION</li>
-                <li><a href="{{route('admin.dashboard')}}"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
-
-
-                <li class="treeview active">
-                    <a href="#">
-                        <i class="fa fa-edit"></i>
-                        <span>Setup Listings</span>
-                        <i class="fa fa-angle-left pull-right"></i>
-                    </a>
-                    <ul class="treeview-menu">
-                        <li><a href="../charts/chartjs.html"><i class="fa fa-folder-o"></i> Directories Manager</a></li>
-                        <li><a href="{{route('fields.index')}}"><i class="fa fa-circle-o"></i> Fields Manager</a></li>
-
-                    </ul>
-                </li>
-                <li class="treeview">
-                    <a href="#">
-                        <i class="fa fa-users"></i>
-                        <span>Users</span>
-                        <i class="fa fa-angle-left pull-right"></i>
-                    </a>
-                    <ul class="treeview-menu">
-                        <li><a href="../UI/icons.html"><i class="fa fa-circle-o"></i> Add New User</a></li>
-                        <li><a href="../UI/general.html"><i class="fa fa-circle-o"></i> Manage Users</a></li>
-
-                    </ul>
-                </li>
-                <li><a href="{{route('directory.type.index')}}"><i class="fa fa-info"></i>Ono Modules Info</a></li>
-                <li class="treeview">
-                    <a href="#">
-                        <i class="fa fa-cogs"></i>
-                        <span>Settings</span>
-                        <i class="fa fa-angle-left pull-right"></i>
-                    </a>
-                    <ul class="treeview-menu">
-                        @foreach($setting_prefixes as $prefix)
-                            <li><a href="{{route('settings.prefix',$prefix->prefix)}}"><i class="fa fa-cog"></i>{{$prefix->prefix}}</a></li>
-                        @endforeach
-                    </ul>
-                </li>
-
-            </ul>
-        </section>
+            @include('layouts.partials._admin_sidebar')
         <!-- /.sidebar -->
     </aside>
 
@@ -133,9 +76,10 @@
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <section class="content-header">
-
+                @if(isset($page_title))
                <h1>{{$page_title}}</h1>
-
+                @else <h1>{{"Title is not set"}}</h1>
+                @endif
             <ol class="breadcrumb">
                 <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
                 <li><a href="#">Examples</a></li>

@@ -9,6 +9,7 @@
 namespace App\Http\ViewComposers;
 
 
+use App\Directory;
 use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
 
@@ -17,6 +18,7 @@ class AdminMenuComposer
     public function compose(View $view)
     {
         $setting_prefixes = DB::table('settings')->select('prefix')->distinct()->get();
-        $view->with(compact('setting_prefixes'));
+        $directories_for_menu = Directory::all();
+        $view->with(compact('setting_prefixes','directories_for_menu'));
     }
 }
