@@ -16,10 +16,10 @@ class DirectoriesTableSeeder extends Seeder
     public function run()
     {
         //Insert Types
-        $this->insertType('Pages');
+        $this->insertType('Pages','Easily define your custom info pages for the site. Pages can be linked with the page with the help of menus');
         //$this->insertType('Product Catalog');
-        $this->insertType('Blog');
-        $dir = $this->insertType('Directory');
+        $this->insertType('Blog','Blog with comments, tags, social media and media associations');
+        $dir = $this->insertType('Directory','It is a general purpose repository system built on top of ONO framework to easily manage virtually any kind of data e.g. Movies, Mobiles etc');
 
         //Insert Directories
         $this->insertDirectory('Products Catalog',$dir);
@@ -47,11 +47,15 @@ class DirectoriesTableSeeder extends Seeder
      * @param $title
      * @return DirectoryType
      */
-    private function insertType($title)
+    private function insertType($title,$description = null)
     {
         $directory = new DirectoryType();
+        if($description==null)
+            $directory->description = $this->lorem;
+        else $directory->description = $description;
+
         $directory->title = $title;
-        $directory->description = $this->lorem;
+
         $directory->save();
         return $directory;
     }
