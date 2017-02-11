@@ -38,7 +38,7 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-
+    @yield('style')
     <title>OnoAdmin:</title>
 </head>
 <body class="hold-transition sidebar-mini layout-boxed skin-red-light">
@@ -68,7 +68,9 @@
     <!-- Left side column. contains the logo and sidebar -->
     <aside class="main-sidebar">
         <!-- sidebar: style can be found in sidebar.less -->
-            @include('layouts.partials._admin_sidebar')
+        @include('layouts.partials._admin_caffenated_sidebar')
+            {{--@include('layouts.partials._admin_sidebar')--}}
+
         <!-- /.sidebar -->
     </aside>
 
@@ -319,6 +321,7 @@
         link.parent().parent().parent().addClass('active');
     });
 </script>
+@yield('script')
 </body>
 </html>
 

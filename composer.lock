@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "d92a6361e087e16c3bcc1a195bfb4a38",
-    "content-hash": "6c4c9598c4c9f351fe68676c92da4f40",
+    "hash": "04d6c450f412f5fb9f5b9bf12962777b",
+    "content-hash": "5def09a7ddcdbf4054b01e0d1cd041f9",
     "packages": [
         {
             "name": "barryvdh/laravel-debugbar",
@@ -60,6 +60,153 @@
                 "webprofiler"
             ],
             "time": "2016-09-15 14:05:56"
+        },
+        {
+            "name": "caffeinated/menus",
+            "version": "v3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/caffeinated/menus.git",
+                "reference": "c2a59e9ee624f42cd3afe38ba78a30e935066365"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/caffeinated/menus/zipball/c2a59e9ee624f42cd3afe38ba78a30e935066365",
+                "reference": "c2a59e9ee624f42cd3afe38ba78a30e935066365",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/config": "5.3.*",
+                "illuminate/routing": "5.3.*",
+                "illuminate/support": "5.3.*",
+                "illuminate/view": "5.3.*",
+                "laravelcollective/html": "5.3.*",
+                "php": ">=5.6.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Caffeinated\\Menus\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Shea Lewis",
+                    "email": "shea.lewis89@gmail.com"
+                }
+            ],
+            "description": "Laravel 5 Menus",
+            "keywords": [
+                "caffeinated",
+                "laravel",
+                "menu",
+                "navigation"
+            ],
+            "time": "2016-08-23 23:30:20"
+        },
+        {
+            "name": "caffeinated/modules",
+            "version": "v4.1.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/caffeinated/modules.git",
+                "reference": "81c8688320c1ab58181285ba49a8f7eef11a6e3e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/caffeinated/modules/zipball/81c8688320c1ab58181285ba49a8f7eef11a6e3e",
+                "reference": "81c8688320c1ab58181285ba49a8f7eef11a6e3e",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/config": "5.3.*",
+                "illuminate/database": "5.3.*",
+                "illuminate/filesystem": "5.3.*",
+                "illuminate/routing": "5.3.*",
+                "illuminate/support": "5.3.*",
+                "php": ">=5.6.4"
+            },
+            "suggest": {
+                "wikimedia/composer-merge-plugin": "Allows the ability to create and merge composer.json files for your individual modules for module-specific dependency management."
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "4.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Caffeinated\\Modules\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Shea Lewis",
+                    "email": "shea.lewis89@gmail.com"
+                }
+            ],
+            "description": "Laravel 5 Modules",
+            "keywords": [
+                "caffeinated",
+                "laravel",
+                "modules"
+            ],
+            "time": "2017-01-09 17:32:47"
+        },
+        {
+            "name": "caffeinated/themes",
+            "version": "v3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/caffeinated/themes.git",
+                "reference": "69f0211ac18756bececdab73d342204a607a5806"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/caffeinated/themes/zipball/69f0211ac18756bececdab73d342204a607a5806",
+                "reference": "69f0211ac18756bececdab73d342204a607a5806",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/config": "5.3.*",
+                "illuminate/filesystem": "5.3.*",
+                "illuminate/support": "5.3.*",
+                "illuminate/view": "5.3.*",
+                "php": ">=5.6.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Caffeinated\\Themes\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Shea Lewis",
+                    "email": "shea.lewis89@gmail.com"
+                }
+            ],
+            "description": "Laravel 5 Themes",
+            "keywords": [
+                "blade",
+                "caffeinated",
+                "laravel",
+                "themes"
+            ],
+            "time": "2016-08-23 23:20:54"
         },
         {
             "name": "classpreloader/classpreloader",
@@ -602,6 +749,60 @@
                 "laravel"
             ],
             "time": "2016-12-15 18:03:17"
+        },
+        {
+            "name": "laravelcollective/html",
+            "version": "v5.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/LaravelCollective/html.git",
+                "reference": "961ce141c16c6b085128f209496c26efd3e681ca"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/LaravelCollective/html/zipball/961ce141c16c6b085128f209496c26efd3e681ca",
+                "reference": "961ce141c16c6b085128f209496c26efd3e681ca",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/http": "5.3.*",
+                "illuminate/routing": "5.3.*",
+                "illuminate/session": "5.3.*",
+                "illuminate/support": "5.3.*",
+                "illuminate/view": "5.3.*",
+                "php": ">=5.6.4"
+            },
+            "require-dev": {
+                "illuminate/database": "5.3.*",
+                "mockery/mockery": "~0.9.4",
+                "phpunit/phpunit": "~5.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Collective\\Html\\": "src/"
+                },
+                "files": [
+                    "src/helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylorotwell@gmail.com"
+                },
+                {
+                    "name": "Adam Engebretson",
+                    "email": "adam@laravelcollective.com"
+                }
+            ],
+            "description": "HTML and Form Builders for the Laravel Framework",
+            "homepage": "http://laravelcollective.com",
+            "time": "2016-08-27 23:52:43"
         },
         {
             "name": "league/flysystem",

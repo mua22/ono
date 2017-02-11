@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\DirectoryType;
+use App\Modules\Admin\Http\Controllers\AdminAppController;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 

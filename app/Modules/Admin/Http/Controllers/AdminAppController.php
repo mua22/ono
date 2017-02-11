@@ -1,8 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Modules\Admin\Http\Controllers;
 
 use Illuminate\Http\Request;
+
+use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 class AdminAppController extends Controller
@@ -12,7 +14,7 @@ class AdminAppController extends Controller
 
     protected function page_title($title = '')
     {
-     //$this->title = $title;
+        //$this->title = $title;
         view()->share('page_title', $title);
     }
 }

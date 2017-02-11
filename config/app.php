@@ -164,13 +164,6 @@ return [
         Illuminate\View\ViewServiceProvider::class,
 
         /*
-         * Package Service Providers...
-         */
-        Cviebrock\EloquentSluggable\ServiceProvider::class, //provider for slugging
-        Barryvdh\Debugbar\ServiceProvider::class, // provider for debugger
-        //
-
-        /*
          * Application Service Providers...
          */
         App\Providers\AppServiceProvider::class,
@@ -182,6 +175,14 @@ return [
         //OnoServiceProviders
 
         App\Providers\ComposerServiceProvider::class,
+        /*
+         * Package Service Providers...
+         */
+        Cviebrock\EloquentSluggable\ServiceProvider::class, //provider for slugging
+        Barryvdh\Debugbar\ServiceProvider::class, // provider for debugger
+        Caffeinated\Modules\ModulesServiceProvider::class,
+        Caffeinated\Themes\ThemesServiceProvider::class,
+        Caffeinated\Menus\MenusServiceProvider::class,
 
     ],
 
@@ -231,6 +232,10 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
+        'Module'=> Caffeinated\Modules\Facades\Module::class,
+        'Theme' => Caffeinated\Themes\Facades\Theme::class,
+        'Component' => Caffeinated\Themes\Facades\Component::class,
+        'Menu' => Caffeinated\Menus\Facades\Menu::class,
     ],
 
 ];
