@@ -20,12 +20,12 @@ class ModuleServiceProvider extends ServiceProvider
         $this->loadViewsFrom(__DIR__.'/../Resources/Views', 'settings');
         $this->loadMigrationsFrom(__DIR__.'/../Database/Migrations', 'settings');
 
-        $menu = Menu::get('admin');
+        /*$menu = Menu::get('admin');
         $menu->add('Settings', '/')->icon('cogs');
             $prefixes = DB::table('settings')->select('prefix')->distinct()->get();
             foreach($prefixes as $prefix){
                 $menu->settings->add($prefix->prefix, route('settings.prefix',$prefix->prefix))->icon('cog');
-            }
+            }*/
 
     }
 
