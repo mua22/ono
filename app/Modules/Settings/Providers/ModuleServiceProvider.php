@@ -4,6 +4,7 @@ namespace App\Modules\Settings\Providers;
 
 use Caffeinated\Modules\Support\ServiceProvider;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Schema;
 use Menu;
 use Caffeinated\Menus\Builder;
 
@@ -20,12 +21,15 @@ class ModuleServiceProvider extends ServiceProvider
         $this->loadViewsFrom(__DIR__.'/../Resources/Views', 'settings');
         $this->loadMigrationsFrom(__DIR__.'/../Database/Migrations', 'settings');
 
-        /*$menu = Menu::get('admin');
-        $menu->add('Settings', '/')->icon('cogs');
+        if(Schema::hasTable('settings')){
+            $menu = Menu::get('admin');
+            $menu->add('Settings', '/')->icon('cogs')->data('order',998);
             $prefixes = DB::table('settings')->select('prefix')->distinct()->get();
             foreach($prefixes as $prefix){
                 $menu->settings->add($prefix->prefix, route('settings.prefix',$prefix->prefix))->icon('cog');
-            }*/
+            }
+        }
+
 
     }
 

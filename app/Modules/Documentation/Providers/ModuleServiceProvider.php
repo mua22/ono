@@ -18,7 +18,7 @@ class ModuleServiceProvider extends ServiceProvider
         $this->loadViewsFrom(__DIR__.'/../Resources/Views', 'documentation');
         $this->loadMigrationsFrom(__DIR__.'/../Database/Migrations', 'documentation');
         $menu = Menu::get('admin');
-        $menu->add('Documentation', route('admin.documentation'))->icon('book');
+        $menu->add('Documentation', route('admin.documentation'))->icon('book')->data('order',999);
 
     }
 

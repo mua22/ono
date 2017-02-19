@@ -13,6 +13,6 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('/test', function (Request $request) {
-    // return $request->test();
+Route::get('/directories', function (Request $request) {
+    // return $request->directories();
 })->middleware('auth:api');

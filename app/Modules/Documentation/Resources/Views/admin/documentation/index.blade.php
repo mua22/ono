@@ -11,15 +11,7 @@
                     </div>
                     <div class="col-md-9">
                         <div id="docs">
-                            <h1>Introduction</h1>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium adipisci dignissimos dolorem, eos
-                                et fugiat fugit itaque iusto, magnam natus nihil, quasi quisquam quo reiciendis sequi sint temporibus
-                                voluptatem voluptatum!</p>
-                            <h2>Modules</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores modi praesentium reiciendis repudiandae
-                                ullam! Accusantium at autem delectus, distinctio dolore fugit itaque modi non, praesentium quo
-                                reiciendis repellendus ullam voluptas.</p>
-                            <h1>Chapter 2</h1>
+                            @include('documentation::admin.documentation.documentation')
                         </div>
                     </div>
                 </div>

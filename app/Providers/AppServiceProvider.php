@@ -25,7 +25,7 @@ class AppServiceProvider extends ServiceProvider
 
         Menu::make('admin', function(Builder $menu) {
 
-        });
+        })->sortBy('order');
     }
 
     /**

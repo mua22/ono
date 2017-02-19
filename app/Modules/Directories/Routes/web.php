@@ -11,8 +11,11 @@
 |
 */
 
-Route::group(['prefix' => 'test'], function () {
+Route::group(['prefix' => 'directories'], function () {
     Route::get('/', function () {
-        dd('This is the Test module index page. Build something great!');
+        dd('This is the Directories module index page. Build something great!');
     });
+});
+Route::group(['prefix' => 'admin'], function () {
+    Route::resource('directories','DirectoriesController');
 });
