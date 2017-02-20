@@ -21,7 +21,19 @@ Route::group(['prefix' => 'admin'], function () {
 });
 
 
-Breadcrumbs::register('home', function($breadcrumbs)
+Breadcrumbs::register('admin.dashboard', function($breadcrumbs)
 {
-    $breadcrumbs->push('Home', route('directories.index'));
+    $breadcrumbs->push('Home', route('admin.dashboard'));
+});
+
+Breadcrumbs::register('admin.directories', function($breadcrumbs)
+{
+    $breadcrumbs->parent('admin.dashboard');
+    $breadcrumbs->push('Setup Directories', route('directories.index'));
+});
+
+Breadcrumbs::register('admin.directories.index', function($breadcrumbs)
+{
+    $breadcrumbs->parent('admin.directories');
+    $breadcrumbs->push('Manage Directories', route('directories.index'));
 });

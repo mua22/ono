@@ -81,13 +81,14 @@
         <section class="content-header">
                 @if(isset($page_title))
                <h1>{{$page_title}}</h1>
-                @else <h1>{{"Title is not set"}}</h1>
+                @else <h1>{{""}}</h1>
                 @endif
-            <ol class="breadcrumb">
+            @yield("breadcrumb")
+            {{--<ol class="breadcrumb">
                 <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
                 <li><a href="#">Examples</a></li>
                 <li class="active">404 error</li>
-            </ol>
+            </ol>--}}
         </section>
 
         <!-- Main content -->

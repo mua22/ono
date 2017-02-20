@@ -35,13 +35,13 @@
             var j = 0;
             $('#docs h1').each(function(index, element){
                 i++;
-                $(element).text(i + '. ' + $(element).text());
+                $(element).text(i + ' ' + $(element).text());
 
                 j = 1;
                 $(element).nextUntil('h1').each(function(subindex, subelement){
                     if (!$(this).is('h2')) return; // so subelements other than h2 can be left alone
                     j++;
-                    $(subelement).text(i + '.' + j + '. ' + $(subelement).text());
+                    $(subelement).text(i + '.' + j + ' ' + $(subelement).text());
                 });
             });
 

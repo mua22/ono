@@ -12,7 +12,7 @@
             </div>
         </div>
         <div class="box-body">
-            {!! Breadcrumbs::render('home') !!}
+
             <table class="table table-hover table-striped">
                 <thead>
                 <tr>
@@ -53,3 +53,6 @@
 
 @endsection
 
+@section('breadcrumb')
+    {!! Breadcrumbs::render('admin.directories.index') !!}
+    @endsection
