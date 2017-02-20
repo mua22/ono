@@ -183,6 +183,7 @@ return [
         Caffeinated\Modules\ModulesServiceProvider::class,
         Caffeinated\Themes\ThemesServiceProvider::class,
         Caffeinated\Menus\MenusServiceProvider::class,
+        DaveJamesMiller\Breadcrumbs\ServiceProvider::class,
 
     ],
 
@@ -236,6 +237,7 @@ return [
         'Theme' => Caffeinated\Themes\Facades\Theme::class,
         'Component' => Caffeinated\Themes\Facades\Component::class,
         'Menu' => Caffeinated\Menus\Facades\Menu::class,
+        'Breadcrumbs' => DaveJamesMiller\Breadcrumbs\Facade::class,
     ],
 
 ];

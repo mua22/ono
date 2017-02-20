@@ -19,3 +19,9 @@ Route::group(['prefix' => 'directories'], function () {
 Route::group(['prefix' => 'admin'], function () {
     Route::resource('directories','DirectoriesController');
 });
+
+
+Breadcrumbs::register('home', function($breadcrumbs)
+{
+    $breadcrumbs->push('Home', route('directories.index'));
+});
