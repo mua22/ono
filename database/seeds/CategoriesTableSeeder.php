@@ -24,7 +24,7 @@ class CategoriesTableSeeder extends Seeder
 
     public function insertCategory($title,$directory_id=1,$parent_id=null)
     {
-        $cat = new \App\Category();
+        $cat = new \App\Modules\Directories\Models\Category();
         $cat->title = $title;
         $cat->description = "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias deleniti ea fuga ipsam laudantium magni nam officiis quas quos, tempore. Ad consequatur dicta eaque eius ipsam molestiae sit veniam voluptas.";
         $cat->directory_id = $directory_id;

@@ -1,9 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\DirectoryType;
-use App\Directory;
-use App\Field;
+
 
 class DirectoriesTableSeeder extends Seeder
 {
@@ -35,7 +33,7 @@ class DirectoriesTableSeeder extends Seeder
      */
     private function insertDirectory($title,$type)
     {
-        $directory = new Directory();
+        $directory = new \App\Modules\Directories\Models\Directory();
         $directory->title = $title;
         $directory->description = $this->lorem;
         $directory->directory_type_id = $type->id;
@@ -49,7 +47,7 @@ class DirectoriesTableSeeder extends Seeder
      */
     private function insertType($title,$description = null)
     {
-        $directory = new DirectoryType();
+        $directory = new \App\Modules\Directories\Models\DirectoryType();
         if($description==null)
             $directory->description = $this->lorem;
         else $directory->description = $description;

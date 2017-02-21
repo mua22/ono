@@ -18,7 +18,7 @@ class SettingsTableSeeder extends Seeder
 
     private function insertSetting($title,$key,$value,$prefix,$input_type='text',$description='',$editable=1)
     {
-        $setting = new \App\Setting();
+        $setting = new \App\Modules\Settings\Models\Setting();
         $setting->title = $title;
         $setting->key = $key;
         $setting->value = $value;

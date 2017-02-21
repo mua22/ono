@@ -1,11 +1,10 @@
 <?php
 
-namespace App;
+namespace App\Modules\Directories\Models;
 
-use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Model;
-
-class Field extends Model
+use Cviebrock\EloquentSluggable\Sluggable;
+class Article extends Model
 {
     use Sluggable;
 

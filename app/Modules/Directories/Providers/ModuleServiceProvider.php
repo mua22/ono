@@ -2,6 +2,8 @@
 
 namespace App\Modules\Directories\Providers;
 
+use App\Modules\Directories\Models\Field;
+use App\Modules\Directories\Observers\FieldObserver;
 use Caffeinated\Menus\Facades\Menu;
 use Caffeinated\Modules\Support\ServiceProvider;
 
@@ -17,6 +19,8 @@ class ModuleServiceProvider extends ServiceProvider
         $this->loadTranslationsFrom(__DIR__.'/../Resources/Lang', 'directories');
         $this->loadViewsFrom(__DIR__.'/../Resources/Views', 'directories');
         $this->loadMigrationsFrom(__DIR__.'/../Database/Migrations', 'directories');
+        Field::observe(FieldObserver::class);
+
         $admin = Menu::get('admin');
         $admin->add('Browse', '#')->icon('folder-open-o')->data('order',1);
         $admin->browse->add('Articles','/');

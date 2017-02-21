@@ -9,8 +9,10 @@
 namespace App\Http\ViewComposers;
 
 
-use App\Directory;
+
+use App\Modules\Directories\Models\Directory;
 use Illuminate\View\View;
+
 
 class SiteMenuComposer
 {

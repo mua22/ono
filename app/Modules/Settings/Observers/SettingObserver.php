@@ -6,11 +6,12 @@
  * Time: 9:29 AM
  */
 
-namespace App\Observers;
+namespace App\Modules\Settings\Observers;
 
 
-use App\Setting;
+
 use App\Common\SettingsFileLoader;
+use App\Modules\Settings\Models\Setting;
 use Illuminate\Support\Facades\DB;
 
 class SettingObserver

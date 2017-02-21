@@ -1,10 +1,9 @@
 <?php
 
-namespace App;
+namespace App\Modules\Directories\Models;
 
-use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Model;
-
+use Cviebrock\EloquentSluggable\Sluggable;
 class DirectoryType extends Model
 {
     use Sluggable;

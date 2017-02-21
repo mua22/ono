@@ -16,6 +16,8 @@ class ModuleServiceProvider extends ServiceProvider
         $this->loadTranslationsFrom(__DIR__.'/../Resources/Lang', 'ono');
         $this->loadViewsFrom(__DIR__.'/../Resources/Views', 'ono');
         $this->loadMigrationsFrom(__DIR__.'/../Database/Migrations', 'ono');
+
+        view()->composer('layouts.site','App\Http\ViewComposers\SiteMenuComposer');
     }
 
     /**

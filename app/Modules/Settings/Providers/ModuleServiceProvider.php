@@ -2,6 +2,8 @@
 
 namespace App\Modules\Settings\Providers;
 
+use App\Modules\Settings\Models\Setting;
+use App\Modules\Settings\Observers\SettingObserver;
 use Caffeinated\Modules\Support\ServiceProvider;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
@@ -20,6 +22,8 @@ class ModuleServiceProvider extends ServiceProvider
         $this->loadTranslationsFrom(__DIR__.'/../Resources/Lang', 'settings');
         $this->loadViewsFrom(__DIR__.'/../Resources/Views', 'settings');
         $this->loadMigrationsFrom(__DIR__.'/../Database/Migrations', 'settings');
+
+        Setting::observe(SettingObserver::class);
 
         if(Schema::hasTable('settings')){
             $menu = Menu::get('admin');

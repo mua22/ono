@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Directory;
+
+use App\Modules\Directories\Models\Directory;
 use Illuminate\Http\Request;
 
 class SiteController extends Controller

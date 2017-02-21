@@ -1,13 +1,15 @@
 <?php
 
-namespace App;
+namespace App\Modules\Directories\Models;
 
-use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Model;
+use Cviebrock\EloquentSluggable\Sluggable;
+use Cviebrock\EloquentSluggable\SluggableScopeHelpers;
 
-class Article extends Model
+class Category extends Model
 {
     use Sluggable;
+    use SluggableScopeHelpers;
 
     /**
      * Return the sluggable configuration array for this model.

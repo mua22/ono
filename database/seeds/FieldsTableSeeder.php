@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Field;
+
 
 class FieldsTableSeeder extends Seeder
 {
@@ -23,7 +23,7 @@ class FieldsTableSeeder extends Seeder
 
     public function insertField($title)
     {
-        $field = new Field();
+        $field = new \App\Modules\Directories\Models\Field();
         $field->title = $title;
         $field->save();
     }
