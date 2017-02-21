@@ -15,8 +15,10 @@
 </p>
 <h2>Adding breadcrumb to Admin</h2>
 <p>Ono uses the <a href="http://laravel-breadcrumbs.readthedocs.io/en/latest/start.html">Laravel Breadcrumbs plugin</a>. You need to
-define your breadcrumbs in your route file as Breadcrumbs::register('home', function($breadcrumbs)
+define your breadcrumbs in your route file as</p>
+    <pre>
+    Breadcrumbs::register('home', function($breadcrumbs)
     {
     $breadcrumbs->push('Home', route('directories.index'));
-    });
-</p>
+    });</pre>
+

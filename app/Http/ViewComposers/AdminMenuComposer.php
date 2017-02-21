@@ -9,7 +9,7 @@
 namespace App\Http\ViewComposers;
 
 
-use App\Directory;
+use App\Modules\Directories\Models\Directory;
 use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
 
