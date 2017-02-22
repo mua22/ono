@@ -21,4 +21,5 @@ define your breadcrumbs in your route file as</p>
     {
     $breadcrumbs->push('Home', route('directories.index'));
     });</pre>
-
+<h1>Directories Management</h1>
+<h2>Custom Fields</h2>
