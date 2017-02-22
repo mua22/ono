@@ -18,6 +18,7 @@ Route::group(['prefix' => 'directories'], function () {
 });
 Route::group(['prefix' => 'admin'], function () {
     Route::resource('directories','DirectoriesController');
+    Route::resource('categories','CategoriesController');
 });
 
 
