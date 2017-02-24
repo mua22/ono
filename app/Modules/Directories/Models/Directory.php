@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Modules\Directories\Models;
-
+use App\Modules\Directories\Models\Field;
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Cviebrock\EloquentSluggable\SluggableScopeHelpers;
@@ -28,5 +28,10 @@ class Directory extends Model
     public function categories()
     {
         return $this->hasMany('App\Category');
+    }
+
+    public function fields(){
+        return $this->belongsToMany(Field::class,'directory_fields');
+
     }
 }

@@ -21,4 +21,8 @@ class Field extends Model
             ]
         ];
     }
+
+
+    protected $fillable = ['title', 'description'];
+
 }
