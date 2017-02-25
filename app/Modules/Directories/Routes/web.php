@@ -16,6 +16,7 @@ Route::group(['prefix' => 'directories'], function () {
         dd('This is the Directories module index page. Build something great!');
     });
 });
+
 Route::group(['prefix' => 'admin'], function () {
     Route::resource('directories','DirectoriesController');
     Route::resource('categories','CategoriesController');

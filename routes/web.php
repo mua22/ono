@@ -20,6 +20,7 @@ Route::get('/',['as'=>'home','uses'=>'SiteController']);
 Route::get('/directory/{slug}','Site\DirectoryController@show');
 Auth::routes();
 
+
 Route::get('/home', 'HomeController@index');
 
 Route::group(['prefix' => 'admin'], function () {
