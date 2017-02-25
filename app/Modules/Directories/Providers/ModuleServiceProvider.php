@@ -28,11 +28,11 @@ class ModuleServiceProvider extends ServiceProvider
         $directories = $admin->add('Setup Directories', '#')->icon('folder-open-o')->data('order',2);
         $directories->add('Directories Manager', route('directories.index'))->icon('folder-open')->data('order',1);
         $directories->add('Categories Manager', route('categories.index'))->icon('clone')->data('order',2);
-<<<<<<< HEAD
+
         $directories->add('Fields Manager', '/')->icon('database')->data('order',3);
-=======
+
         $directories->add('Fields Manager', route('fields.index'))->icon('database')->data('order',3);
->>>>>>> origin/master
+
 
         $admin->sortBy('order');
     }
