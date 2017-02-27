@@ -65,7 +65,6 @@ class CategoriesController extends AdminAppController
     public function edit($id)
     {
         $category = Category::findOrFail($id);
-
         $this->page_title('Editing '.$category->title);
         return view('directories::categories.edit', compact('category'));
 
@@ -80,7 +79,12 @@ class CategoriesController extends AdminAppController
      */
     public function update(Request $request, $id)
     {
-        //
+        $category = Category::findOrFail($id);
+        $category->updateCategory($request);
+
+        //route('categories.index');
+        return back();
+
     }
 
     /**
@@ -91,6 +95,8 @@ class CategoriesController extends AdminAppController
      */
     public function destroy($id)
     {
-        //
+        $category = Category::findOrFail($id);
+        $category->delete();
+        return back();
     }
 }

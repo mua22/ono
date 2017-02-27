@@ -40,12 +40,6 @@
                     </tr>
                 @endforeach
                 </tbody>
-                <tfoot>
-                <tr>
-                    <th>Id</th>
-                    <th>Title</th>
-                </tr>
-                </tfoot>
             </table>
         </div>
 

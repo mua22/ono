@@ -6,7 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Cviebrock\EloquentSluggable\SluggableScopeHelpers;
 
-class Directory extends Model
+class
+Directory extends Model
 {
     use Sluggable;
     use SluggableScopeHelpers;
@@ -27,7 +28,7 @@ class Directory extends Model
 
     public function categories()
     {
-        return $this->hasMany('App\Category');
+        return $this->hasMany(Category::class);
     }
 
     public function fields(){

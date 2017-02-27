@@ -20,6 +20,7 @@ Route::group(['prefix' => 'directories'], function () {
 Route::group(['prefix' => 'admin'], function () {
     Route::resource('directories','DirectoriesController');
     Route::resource('categories','CategoriesController');
+
     Route::resource('fields','FieldsController');
     Route::get('/fields/create/{directory}',['as' => 'fields.add', 'uses' => 'FieldsController@create']);
     Route::post('/fields/{directory}',['as' => 'fields.submit', 'uses' => 'FieldsController@store']);
