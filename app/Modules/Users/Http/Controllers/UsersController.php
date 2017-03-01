@@ -14,7 +14,7 @@ class UsersController extends Controller
      */
     public function index()
     {
-        dd("hello check Users Controller in Users Module");
+        dd("abc abc hello check Users Controller in Users Module");
     }
 
     /**
