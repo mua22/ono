@@ -4,7 +4,7 @@ namespace App\Modules\Directories\Providers;
 
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Route;
-
+use App\Modules\Directories\Models;
 class RouteServiceProvider extends ServiceProvider
 {
     /**
@@ -26,6 +26,7 @@ class RouteServiceProvider extends ServiceProvider
         //
 
         parent::boot();
+       // Route::model('category', Models\Category::class);
     }
 
     /**

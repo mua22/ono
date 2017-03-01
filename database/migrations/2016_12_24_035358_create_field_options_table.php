@@ -19,7 +19,7 @@ class CreateFieldOptionsTable extends Migration
             $table->string('slug');
             $table->text('description');
             $table->integer('field_id')->unsigned();
-            $table->foreign('field_id')->references('id')->on('fields');
+           // $table->foreign('field_id')->references('id')->on('fields');
             $table->timestamps();
         });
 

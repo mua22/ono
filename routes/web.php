@@ -20,12 +20,13 @@ Route::get('/',['as'=>'home','uses'=>'SiteController']);
 Route::get('/directory/{slug}','Site\DirectoryController@show');
 Auth::routes();
 
+
 Route::get('/home', 'HomeController@index');
 
 Route::group(['prefix' => 'admin'], function () {
     Route::resource('directory','Admin\DirectoryController');
     //Route::get('/',['as'=>'admin.dashboard','uses'=>'DashboardController']);
-    Route::resource('fields','Admin\FieldsController');
+    //Route::resource('fields','Admin\FieldsController');
     Route::get('/settings/{prefix}',['as'=>'settings.prefix','uses'=>'Admin\SettingsController@prefix']);
     Route::post('/settings/prefix',['as'=>'settings.storeprefix','uses'=>'Admin\SettingsController@storePrefix']);
     Route::resource('settings','Admin\SettingsController');

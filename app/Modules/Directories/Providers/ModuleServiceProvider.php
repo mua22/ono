@@ -26,9 +26,13 @@ class ModuleServiceProvider extends ServiceProvider
         $admin->browse->add('Articles','/');
 
         $directories = $admin->add('Setup Directories', '#')->icon('folder-open-o')->data('order',2);
-        $directories->add('Directories Manager', route('directories.index'))->icon('folder-open');
-        $directories->add('Categories Manager', route('categories.index'))->icon('clone');
-        $directories->add('Fields Manager', '/')->icon('database');
+        $directories->add('Directories Manager', route('directories.index'))->icon('folder-open')->data('order',1);
+        $directories->add('Categories Manager', route('categories.index'))->icon('clone')->data('order',2);
+
+        
+
+        $directories->add('Fields Manager', route('fields.index'))->icon('database')->data('order',3);
+
 
         $admin->sortBy('order');
     }

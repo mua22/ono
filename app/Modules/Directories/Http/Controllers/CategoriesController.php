@@ -2,12 +2,14 @@
 
 namespace App\Modules\Directories\Http\Controllers;
 
+use App\Modules\Admin\Http\Controllers\AdminAppController;
+use App\Modules\Directories\Models\Category;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-class CategoriesController extends Controller
+class CategoriesController extends AdminAppController
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +18,9 @@ class CategoriesController extends Controller
      */
     public function index()
     {
-        return view('directories::categories.index');
+        $this->page_title('Browse All Categories');
+        $categories = Category::all();
+        return view('directories::categories.index',compact('categories'));
     }
 
     /**
@@ -26,7 +30,8 @@ class CategoriesController extends Controller
      */
     public function create()
     {
-        //
+        $this->page_title('Create New Category');
+        return view('directories::categories.create');
     }
 
     /**
@@ -59,7 +64,10 @@ class CategoriesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $category = Category::findOrFail($id);
+        $this->page_title('Editing '.$category->title);
+        return view('directories::categories.edit', compact('category'));
+
     }
 
     /**
@@ -71,7 +79,12 @@ class CategoriesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $category = Category::findOrFail($id);
+        $category->updateCategory($request);
+
+        //route('categories.index');
+        return back();
+
     }
 
     /**
@@ -82,6 +95,8 @@ class CategoriesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $category = Category::findOrFail($id);
+        $category->delete();
+        return back();
     }
 }

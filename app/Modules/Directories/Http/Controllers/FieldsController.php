@@ -5,18 +5,28 @@ namespace App\Modules\Directories\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-use App\Http\Controllers\Controller;
+use App\Modules\Admin\Http\Controllers\AdminAppController;
+use App\Modules\Directories\Models\Directory;
+use App\Modules\Directories\Models\DirectoryField;
+use App\Modules\Directories\Models\Field;
+use Illuminate\Support\Facades\DB;
 
-class FieldsController extends Controller
+
+class FieldsController extends AdminAppController
 {
     /**
      * Display a listing of the resource.
-     *
+     *  
      * @return \Illuminate\Http\Response
      */
+    
     public function index()
     {
-        //
+        $this->page_title('Fields Manager');
+        
+        $directories = Directory::all();
+        //$fields = Field::paginate(10);
+        return view('directories::fields.index')->with(compact('directories'));
     }
 
     /**
@@ -24,9 +34,12 @@ class FieldsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Directory $directory)
     {
         //
+        
+
+    dd('create function');
     }
 
     /**
@@ -35,9 +48,15 @@ class FieldsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request,Directory $directory)
     {
         //
+
+        $directory->fields()->create(['title' => $request->title, 'description' => $request->description]);
+        return redirect('admin/fields/'.$directory->id);
+        
+
+
     }
 
     /**
@@ -49,6 +68,10 @@ class FieldsController extends Controller
     public function show($id)
     {
         //
+        $directory=Directory::find($id);
+        $directories = Directory::all();
+        return view('directories::fields.show',compact('directory','directories'));
+        
     }
 
     /**
@@ -60,6 +83,9 @@ class FieldsController extends Controller
     public function edit($id)
     {
         //
+        $field = Field::findOrFail($id);
+        $this->page_title('Editing '.$field->title);
+        return view('directories::fields.edit')->with(compact('field'));
     }
 
     /**
@@ -69,9 +95,17 @@ class FieldsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Field $field)
     {
         //
+        if(isset($field)){
+            $field->title=$request->title;
+            $field->description=$request->description;
+            $field->save();
+            return back();
+
+        }
+
     }
 
     /**
