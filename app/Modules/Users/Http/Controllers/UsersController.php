@@ -3,8 +3,6 @@
 namespace App\Modules\Users\Http\Controllers;
 
 use Illuminate\Http\Request;
-
-use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 class UsersController extends Controller
@@ -16,7 +14,7 @@ class UsersController extends Controller
      */
     public function index()
     {
-        dd("check Users Controller in Users Module");
+        dd("abc abc hello check Users Controller in Users Module");
     }
 
     /**
