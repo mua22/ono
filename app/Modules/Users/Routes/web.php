@@ -13,7 +13,7 @@
 
 Route::group(['prefix' => 'users'], function () {
     Route::get('/', function () {
-        dd('This is the Users module index page. Build something great!');
+        dd('This is the users module index page. Build something great!');
     });
 });
 Route::group(['prefix' => 'admin'], function () {
@@ -21,3 +21,4 @@ Route::group(['prefix' => 'admin'], function () {
     Route::resource('roles','RolesController');
     Route::resource('permissions','PermissionsController');
 });
+
