@@ -151,12 +151,14 @@
                     else {
                         FB.login(function(response) {
                             // handle the response
-                            $("#name").val(response.name);
-                            $("#email").val(response.email);
-                            $("#password").val(response.id);
-                            $("#password-confirm").val(response.id);
-                            $("#termsCheckbox").prop('checked',true);
-                            $("#submitRegister").click();
+                            FB.api('/me',{fields: 'name,email'}, function(response) {
+                                $("#name").val(response.name);
+                                $("#email").val(response.email);
+                                $("#password").val(response.id);
+                                $("#password-confirm").val(response.id);
+                                $("#termsCheckbox").prop('checked',true);
+                                $("#submitRegister").click();
+                            });
                         }, {scope: 'public_profile,email'});
                     }
                 });
