@@ -6,6 +6,8 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>AdminLTE 2 | Registration Page</title>
+
+        <meta name="google-signin-client_id" content="210152992287-v5iqmrf7ikl8vajqq1ufg476pjhhjr6m.apps.googleusercontent.com">
         <!-- Tell the browser to be responsive to screen width -->
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
         <!-- Bootstrap 3.3.6 -->
@@ -21,12 +23,17 @@
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+
+
+
         <![endif]-->
     </head>
+
+
     <body class="hold-transition register-page">
+
     <div class="register-box">
+
         <div class="register-logo">
             <a href="/"><b>Ono</b></a>
         </div>
@@ -95,24 +102,76 @@
 
             <div class="social-auth-links text-center">
                 <p>- OR -</p>
-                <a id="facebookLogin" href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign up using
+                <a id="facebookLogin" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign up using
                     Facebook</a>
-                <a href="#" class="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-google-plus"></i> Sign up using
-                    Google+</a>
+                <div id="my-signin2"></div>
             </div>
 
+            <span id="not_signed_hello">Hello</span>
+
             <a href="login.html" class="text-center">I already have a membership</a>
+
+
+
+
         </div>
+
         <!-- /.form-box -->
     </div>
     <!-- /.register-box -->
+    </body>
+@endsection
+
+
+
+
+
+
 
     <!-- jQuery 2.2.3 -->
     <script src="plugins/jQuery/jQuery-2.2.0.min.js"></script>
     <!-- Bootstrap 3.3.6 -->
     <script src="/bootstrap/js/bootstrap.min.js"></script>
+
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+
     <!-- iCheck -->
     <script src="plugins/iCheck/icheck.min.js"></script>
+
+    <script>
+        function onSuccess(googleUser) {
+            $("#my-signin2").click(function () {
+                $("#name").val(googleUser.getBasicProfile().getName());
+                $("#email").val(googleUser.getBasicProfile().getEmail());
+                $("#password").val(googleUser.getBasicProfile().getId());
+                $("#password-confirm").val(googleUser.getBasicProfile().getId());
+                $("#termsCheckbox").prop('checked',true);
+                $("#submitRegister").click();
+            });
+        }
+        function onFailure(error) {
+            alert("Failed to log you in");
+        }
+        function renderButton() {
+            gapi.signin2.render('my-signin2', {
+                'scope': 'profile email',
+                'width': 320,
+                'height': 35,
+                'longtitle': false,
+                'theme': 'dark',
+                'onsuccess': onSuccess,
+                'onfailure': onFailure
+            });
+        }
+
+    </script>
+
+    <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+
+
+
     <script>
         //        $( document ).ready(function() {
         //            $(function () {
@@ -179,6 +238,5 @@
 
 
 
-    </body>
-@endsection
+
 
