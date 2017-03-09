@@ -81,8 +81,7 @@ class CategoriesController extends AdminAppController
     {
         $category = Category::findOrFail($id);
         $category->updateCategory($request);
-
-        //route('categories.index');
+        return redirect(route('categories.index'));
         return back();
 
     }
