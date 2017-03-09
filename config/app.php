@@ -184,7 +184,7 @@ return [
         Caffeinated\Themes\ThemesServiceProvider::class,
         Caffeinated\Menus\MenusServiceProvider::class,
         DaveJamesMiller\Breadcrumbs\ServiceProvider::class,
-
+        Zizaco\Entrust\EntrustServiceProvider::class,
     ],
 
     /*
@@ -238,6 +238,7 @@ return [
         'Component' => Caffeinated\Themes\Facades\Component::class,
         'Menu' => Caffeinated\Menus\Facades\Menu::class,
         'Breadcrumbs' => DaveJamesMiller\Breadcrumbs\Facade::class,
+        'Entrust'   => Zizaco\Entrust\EntrustFacade::class,
     ],
 
 ];

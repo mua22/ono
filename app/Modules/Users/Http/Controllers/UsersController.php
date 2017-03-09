@@ -2,13 +2,13 @@
 
 namespace App\Modules\Users\Http\Controllers;
 
+use App\Modules\Users\Models\User;
 use Illuminate\Http\Request;
+use App\Modules\Admin\Http\Controllers\AdminAppController;
 
-use App\Http\Requests;
-use App\Http\Controllers\Controller;
-
-class UsersController extends Controller
+class UsersController extends AdminAppController
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -16,7 +16,8 @@ class UsersController extends Controller
      */
     public function index()
     {
-        dd("check Users Controller in Users Module");
+        $users = User::get();
+        return view("users::users.index")->with('users',$users);
     }
 
     /**
@@ -27,6 +28,8 @@ class UsersController extends Controller
     public function create()
     {
         //
+        $this->page_title('Create New User');
+        return view('users::users.create');
     }
 
     /**
@@ -38,6 +41,19 @@ class UsersController extends Controller
     public function store(Request $request)
     {
         //
+        $this->validate($request,[
+            'name' => 'required',
+            'email' => 'required|unique:users,email',
+            'password' => 'required|min:6',
+        ]);
+        $user = new User();
+        $user->name=$request->name;
+        $user->email=$request->email;
+        $user->password=bcrypt($request->password);
+        $user->timestamps;
+        $user->save();
+        $users = User::get();
+        return view('users::users.index')->with('users',$users);
     }
 
     /**
@@ -60,6 +76,10 @@ class UsersController extends Controller
     public function edit($id)
     {
         //
+        $this->page_title('Edit User');
+        $user = User::find($id);
+        return view('users::users.edit')->with(compact('user'));
+
     }
 
     /**
@@ -72,6 +92,21 @@ class UsersController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $this->validate($request,[
+            'name' => 'required',
+            'email' => "required|unique:users,email,$id",
+            'password' => 'required|min:6',
+        ]);
+
+        $user = User::find($id);
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = bcrypt($request->password);
+        $user->save();
+
+        $users = User::get();
+        return view('users::users.index')->with('users',$users);
+
     }
 
     /**
@@ -83,5 +118,11 @@ class UsersController extends Controller
     public function destroy($id)
     {
         //
+
+        $user = User::find($id);
+        $user->delete();
+
+        $users = User::get();
+        return view('users::users.index')->with('users',$users);
     }
 }
