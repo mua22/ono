@@ -21,13 +21,13 @@ class DirectoryFieldsTableSeeder extends Seeder
         $this->insertDirectoryField(2,3);
     }
 
-    public function insertField($directory_id,$field_id)
+    public function insertDirectoryField($directory_id,$field_id)
     {
         $directoryField = new \App\Modules\Directories\Models\DirectoryField();
         $directoryField->directory_id = $directory_id;
         $directoryField->field_id = $field_id;
 
-        $field->save();
+        $directoryField->save();
     }
-    }
+    
 }

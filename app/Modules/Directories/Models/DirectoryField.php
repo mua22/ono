@@ -6,6 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 class DirectoryField extends Model
 {
 
-
+	public $timestamps = false;
 
 }
