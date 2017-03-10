@@ -23,7 +23,7 @@
 				<tr>
 					<td>{{$directory->title}}</td>
 					<td class="text-right"><div class="btn-group-horizontal">
-						<a href="{{route('fields.show',$directory->id)}}" class="btn btn-info btn-xs"><i class="fa fa-angle-double-right"></i>View Fields</a>
+						<a href="{{route('fields.show',[$directory->id])}}" class="btn btn-info btn-xs"><i class="fa fa-angle-double-right"></i>View Fields</a>
 
 
 					</div></td>

@@ -10,7 +10,7 @@
 
         </div>
 
-        <input type="hidden" name="_token" value="{{csrf_token()}}"></input>
+        <input type="hidden" name="_token" value="{{csrf_token()}}">
         @if(isset($field))
             <input type="hidden" name="_method" value="put">
         @endif

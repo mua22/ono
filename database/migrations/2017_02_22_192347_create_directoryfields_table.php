@@ -30,7 +30,7 @@ class CreateDirectoryfieldsTable extends Migration
      *
      * @return void
      */
-    public $timestamps = false;
+
     public function down()
     {
         Schema::dropIfExists('directoryfields');
