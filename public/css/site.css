@@ -1,0 +1,15 @@
+.topAchor{
+    color: #fff;
+    margin-top: 7px;
+}
+.top-bar{
+    background-color: dimgrey;
+    height: 50px;
+    border-radius: 3px
+}
+.w3-card{
+    border-radius: 10px;
+}
+.adjust-col{
+    margin-left:15px;
+}
