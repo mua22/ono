@@ -1,15 +1,32 @@
 @extends('layouts.site')
 @section('content')
-    <div class="row">
-        <h1>{{$directory->title}}</h1>
-        <p>{{$directory->description}}</p>
+
+
+    <div class="w3-container">
+        <div class="row">
+            <h1>{{$directory->title}}</h1>
+        </div>
+        <div class="row">
+            @foreach($categories as $category)
+                <div class="col-md-4">
+                    <table class="w3-table w3-bordered">
+                        <tr>
+                            <th>{{$category->title}}({{$category->articles()->count()}})
+
+
+
+                            </th>
+                        </tr>
+
+                    </table>
+                    </div>
+                    @endforeach
+        </div>
+
+
+
     </div>
     <div class="row">
-        @foreach($directory->categories as $category)
-            <div class="col-md-3">
-                <h2>{{$category->title}}</h2>
-                <p>{{$category->description}}</p>
-            </div>
-            @endforeach
+
     </div>
-    @endsection
+@endsection

@@ -39,6 +39,11 @@ class Category extends Model
         $this->save();
     }
 
+    public function articles(){
+        return $this->belongsToMany(Article::class,'article_category');
+
+    }
+
 
 
 

@@ -16,10 +16,9 @@ class CreateDirectoryfieldsTable extends Migration
     {
         Schema::create('directory_fields', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('directory_id')->unsigned();
-            $table->integer('field_id')->unsigned();
-            $table->foreign('directory_id')->references('id')->on('directories');
-            $table->foreign('field_id')->references('id')->on('fields');
+            $table->integer('directory_id');
+            $table->integer('field_id');
+
 
 
         });
@@ -33,6 +32,6 @@ class CreateDirectoryfieldsTable extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('directoryfields');
+        Schema::dropIfExists('directory_fields');
     }
 }

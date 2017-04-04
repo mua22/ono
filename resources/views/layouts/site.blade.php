@@ -34,14 +34,15 @@ display: block;
                     <li class="active"><a href="/">Home</a></li>
 
                     @foreach($directories as $directory)
-                        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">{{$directory->title}} <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
+                        <li class="dropdown"><a href="\directory/{{$directory->slug}}">{{$directory->title}} <span class="caret"></span></a>
+
+                            <ul class="dropdown-menu" id="zero-padding">
                         @foreach($categories as $category)
 
                             @if($directory->id == $category->directory_id)
 
 
-                                        <li><a href="#">{{$category->title}}</a></li>
+                                        <li><a href="/category/{{$category->slug}}">{{$category->title}}</a></li>
 
 
                             @endif
@@ -49,7 +50,7 @@ display: block;
                             </ul>
                         </li>
                     @endforeach
-
+                </ul>
            </div>
         </nav>
 

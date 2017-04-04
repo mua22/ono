@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers\Site;
 
-use App\Directory;
+use App\Modules\Directories\Models\Directory;
+use App\Modules\Directories\Models\Category;
+
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -45,10 +47,14 @@ class DirectoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($slug)
+    public function showCategories($directory)
     {
-        $directory = Directory::findBySlug($slug);
-        return view('site.directory.show')->with(compact('directory'));
+
+
+        $directory = Directory::findBySlug($directory);
+        $categories = $directory->categories()->get();
+        return view('site.directory.show')->with(compact('categories','directory'));
+
     }
 
     /**
