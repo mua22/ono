@@ -10,6 +10,7 @@ namespace App\Http\ViewComposers;
 
 
 
+use App\Modules\Directories\Models\Category;
 use App\Modules\Directories\Models\Directory;
 use Illuminate\View\View;
 
@@ -20,7 +21,8 @@ class SiteMenuComposer
     public function compose(View $view)
     {
         $directories = Directory::all();
+        $categories = Category::all();
         //$directories = array();
-        $view->with(compact('directories'));
+        $view->with(compact('directories','categories'));
     }
 }

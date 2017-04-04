@@ -18,7 +18,7 @@
 
 Route::get('/',['as'=>'home','uses'=>'SiteController']);
 // Route for list view of articles of specific category
-//Route::get('/category/{category}','Site\DirectoryController@show');
+Route::get('/category/{slug}','Site\ArticleController@index');
 Route::get('/directory/{directory}','Site\DirectoryController@showCategories');
 
 

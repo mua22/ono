@@ -11,8 +11,7 @@ class SiteController extends Controller
 {
     public function __invoke()
     {
-        $directories = Directory::all();
-        $categories = Category::all();
-        return view('dashboard.index')->with(compact('directories','categories'));
+
+        return view('dashboard.index');
     }
 }
