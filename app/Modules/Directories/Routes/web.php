@@ -26,7 +26,17 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('/fields/create/{directory}',['as' => 'fields.add', 'uses' => 'FieldsController@create']);
     Route::post('/fields/add/{directory}',['as' => 'fields.submit', 'uses' => 'FieldsController@store']);
     Route::post('/fields/{directory}',['as' => 'fields.submit', 'uses' => 'FieldsController@store']);
-    
+
+    //Articles Routes
+    Route::get('/articles',['as' => 'articles.index', 'uses' => 'AdminArticleController@index']);
+    Route::get('/articles/create',['as' => 'articles.create', 'uses' => 'AdminArticleController@create']);
+    Route::get('/articles/edit',['as' => 'articles.edit', 'uses' => 'AdminArticleController@edit']);
+    Route::get('/articles/delete',['as' => 'articles.destroy', 'uses' => 'AdminArticleController@destroy']);
+
+
+
+
+
 
 
 });
@@ -43,8 +53,23 @@ Breadcrumbs::register('admin.directories', function($breadcrumbs)
     $breadcrumbs->push('Setup Directories', route('directories.index'));
 });
 
+
+
 Breadcrumbs::register('admin.directories.index', function($breadcrumbs)
 {
     $breadcrumbs->parent('admin.directories');
     $breadcrumbs->push('Manage Directories', route('directories.index'));
+});
+
+
+Breadcrumbs::register('admin.articles', function($breadcrumbs)
+{
+    $breadcrumbs->parent('admin.dashboard');
+    $breadcrumbs->push('Setup Articles', route('articles.index'));
+});
+
+Breadcrumbs::register('admin.articles.index', function($breadcrumbs)
+{
+    $breadcrumbs->parent('admin.dashboard');
+    $breadcrumbs->push('Manage Articles', route('articles.index'));
 });
