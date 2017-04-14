@@ -50,6 +50,7 @@ class FieldsController extends AdminAppController
         //
         $directory=Directory::find($id);
         $directories = Directory::all();
+        $this->page_title('Fields Manager');
         return view('directories::fields.show',compact('directory','directories'));
         
     }

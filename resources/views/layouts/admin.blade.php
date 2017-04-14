@@ -80,7 +80,7 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
                 @if(isset($page_title))
-               <h1>{{$page_title}}</h1>
+               <h1><strong>{{$page_title}}</strong></h1>
                 @else <h1>{{""}}</h1>
                 @endif
             @yield("breadcrumb")

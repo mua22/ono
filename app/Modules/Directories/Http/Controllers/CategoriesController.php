@@ -4,6 +4,7 @@ namespace App\Modules\Directories\Http\Controllers;
 
 use App\Modules\Admin\Http\Controllers\AdminAppController;
 use App\Modules\Directories\Models\Category;
+use App\Modules\Directories\Models\Directory;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -18,9 +19,9 @@ class CategoriesController extends AdminAppController
      */
     public function index()
     {
-        $this->page_title('Browse All Categories');
-        $categories = Category::all();
-        return view('directories::categories.index',compact('categories'));
+        $this->page_title('Categories Manager');
+        $directories = Directory::all();
+        return view('directories::categories.index',compact('directories'));
     }
 
     /**
@@ -28,10 +29,10 @@ class CategoriesController extends AdminAppController
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Directory $directory)
     {
-        $this->page_title('Create New Category');
-        return view('directories::categories.create');
+        $this->page_title('Add Category In '.$directory->title);
+        return view('directories::categories.create',compact('directory'));
     }
 
     /**
@@ -40,9 +41,11 @@ class CategoriesController extends AdminAppController
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Directory $directory)
     {
-        //
+        $directory->categories()->create(['title' => $request->title , 'description' => $request->description]);
+        return redirect('admin/categories/'.$directory->id);
+
     }
 
     /**
@@ -53,7 +56,10 @@ class CategoriesController extends AdminAppController
      */
     public function show($id)
     {
-        //
+        $this->page_title('Categories Manager');
+        $directory = Directory::findOrFail($id);
+        $directories = Directory::all();
+        return view('directories::categories.show', compact('directory','directories'));
     }
 
     /**
@@ -81,7 +87,7 @@ class CategoriesController extends AdminAppController
     {
         $category = Category::findOrFail($id);
         $category->updateCategory($request);
-        return redirect(route('categories.index'));
+        return redirect('admin/categories');
         return back();
 
     }

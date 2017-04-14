@@ -26,6 +26,8 @@ class Category extends Model
         ];
     }
 
+    protected $fillable = ['title', 'description'];
+
     public function directory()
     {
         return $this->belongsTo(Directory::class);
@@ -43,6 +45,7 @@ class Category extends Model
         return $this->belongsToMany(Article::class,'article_category');
 
     }
+
 
 
 
