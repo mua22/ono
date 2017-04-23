@@ -6,7 +6,7 @@
         <div class="box-header">
             <div class="box-tools">
                 <div class="input-group input-group-sm">
-                    <a href="{{route('articles.create')}}" class="btn btn-info">
+                    <a href="{{route('articles.select')}}" class="btn btn-info">
                         <i class="fa fa-plus"></i> Create New Article
                     </a>
                 </div>
@@ -30,16 +30,55 @@
                         <td>{{$article->id}}</td>
                         <td>{{$article->title}}</td>
                         <td>{{$article->summary}}</td>
-                        <td>{{$article->summary}}</td>
-                        <td class="text-right"><div class="btn-group-horizontal">
-                                <a href="{{route('articles.edit',$article->id)}}" class="btn btn-info btn-xs"><i class="fa fa-edit"></i>Edit</a>
-                                <form action="{{route('articles.destroy',$article->id)}}" class="inline" method="POST">
-                                    {{csrf_field()}}
-                                    {{method_field('DELETE')}}
-                                    <input type="submit" value="Delete" class="btn btn-danger btn-xs">
-                                </form>
+                        <td>
+                            @foreach($article_categories as $article_category)
+                                @if($article->id == $article_category->article_id)
+                                    @foreach($categories as $category)
+                                        @if($category->id ==$article_category->category_id)
+                                            <li>{{$category->title}}</li>
+                                        @endif
+                                    @endforeach
+                                @endif
+                            @endforeach
+                        </td>
 
-                            </div></td>
+
+                        <td class="text-right">
+                            <div class="btn-group-horizontal">
+                                <a href="{{route('articles.edit',$article->id)}}" class="btn btn-info btn-xs"><i
+                                            class="fa fa-edit"></i>Edit</a>
+
+
+                                <input type="button" data-toggle="modal" value="delete" data-target="#myModal{{$article->id}}"
+                                       class="btn btn-danger btn-xs">
+
+                                <div id="myModal{{$article->id}}" class="modal fade" role="dialog">
+                                    <div class="modal-dialog">
+
+                                        <!-- Modal content-->
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h2 class="modal-title">Warning</h2>
+                                            </div>
+                                            <div class="modal-body">
+                                                <p>Are you sure you want to completely delete this article?</p>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">
+                                                    Cancel
+                                                </button>
+                                                <a href="{{route('articles.destroy',$article->id)}}"
+                                                   class="btn btn-danger">Delete</a>
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </td>
                     </tr>
                 @endforeach
                 </tbody>

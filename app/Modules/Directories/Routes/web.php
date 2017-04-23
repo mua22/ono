@@ -32,9 +32,15 @@ Route::group(['prefix' => 'admin'], function () {
 
     //Articles Routes
     Route::get('/articles',['as' => 'articles.index', 'uses' => 'AdminArticleController@index']);
-    Route::get('/articles/create',['as' => 'articles.create', 'uses' => 'AdminArticleController@create']);
-    Route::get('/articles/edit',['as' => 'articles.edit', 'uses' => 'AdminArticleController@edit']);
-    Route::get('/articles/delete',['as' => 'articles.destroy', 'uses' => 'AdminArticleController@destroy']);
+
+    Route::post('/articles/create',['as' => 'articles.create', 'uses' => 'AdminArticleController@create']);
+    Route::get('/articles/select',['as' => 'articles.select', 'uses' => 'AdminArticleController@selectDirectory']);
+    Route::post('/articles/store/',['as' => 'articles.store', 'uses' => 'AdminArticleController@store']);
+
+
+    Route::get('/articles/edit/{id}',['as' => 'articles.edit', 'uses' => 'AdminArticleController@edit']);
+    Route::get('/articles/delete/{id}',['as' => 'articles.destroy', 'uses' => 'AdminArticleController@destroy']);
+
 
 
 

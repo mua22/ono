@@ -23,7 +23,7 @@ class ModuleServiceProvider extends ServiceProvider
 
         $admin = Menu::get('admin');
         $admin->add('Browse', '#')->icon('folder-open-o')->data('order',1);
-        $admin->browse->add('Articles',route('articles.index'));
+        $admin->browse->add('Manage Articles',route('articles.index'));
 
         $directories = $admin->add('Setup Directories', '#')->icon('folder-open-o')->data('order',2);
         $directories->add('Directories Manager', route('directories.index'))->icon('folder-open')->data('order',1);
