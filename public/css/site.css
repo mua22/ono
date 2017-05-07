@@ -1,3 +1,22 @@
+
+
+.dropdown:hover .dropdown-menu {
+    visibility: visible;
+    opacity: 0.95;
+    padding: 0px;
+}
+
+.dropdown-menu{
+    opacity: 0;
+    display: block;
+    visibility: hidden;
+    transition: all .3s ease-in;
+    -o-transition: all .3s ease-in-out;
+    -ms-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    -webkit-transition: all .3s ease-in-out;
+}
+
 .topAchor{
     color: #fff;
     margin-top: 7px;
@@ -18,4 +37,140 @@
 
     padding: 0%;
 }
+
+.navbar{
+    background-color: #35424a;
+}
+
+
+.navbar-nav>li>a{
+    color: whitesmoke;
+}
+
+.navbar-nav>li>a:hover{
+    background-color: #35424a;
+    color: whitesmoke;
+}
+.navbar-nav>li>a:visited{
+    background-color: #35424a;
+    color: whitesmoke;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    line-height: 1.5;
+    padding: 0;
+    margin: 0;
+}
+
+
+.container{
+    width: 80%;
+    margin: auto;
+
+}
+
+header{
+    background: #35424a;
+    color: #ffffff;
+    padding-top: 30px;
+    min-height: 20px;
+    border-bottom: #e8491d 3px solid;
+}
+
+header>a{
+    color: #ffffff;
+    text-decoration: none;
+    text-transform: uppercase;
+    border-radius: 0;
+    font-size: 16px;
+}
+
+
+#branding{
+    float: left;
+
+}
+
+header #branding h1{
+    margin: 0;
+}
+
+header nav{
+    float: right;
+    margin-top: 10px;
+}
+
+header .highlight, header .current a{
+    color: #e8491d;
+    font-weight: bold;
+}
+
+
+
+
+
+
+#newsletter{
+    padding: 15px;
+    color: white;
+    background: #35424a;
+    height: 70px;
+}
+
+#newsletter h1{
+    float: left;
+    margin-top: 5px;
+
+}
+
+#newsletter form{
+    float: right;
+    margin-right: 0;
+
+}
+
+#newsletter input[type="text"]{
+    width: 200px;
+    border-radius:10px;
+    font-size: 16px;
+    border: 1px solid;
+}
+
+.button_1{
+    background: #ff704d !important;
+    border: 0 !important;
+    color: #ffffff !important;
+}
+
+#boxes{
+    margin-top: 20px;
+}
+
+#boxes .box{
+    float: left;
+    width: 30%;
+    padding: 10px;
+    text-align: center;
+}
+
+#boxes .box img{
+    width: 90px;
+}
+
+footer{
+    padding: 20px;
+    margin-top: 20px;
+    color: #ffffff;
+    position: absolute;
+    bottom: 0;
+    width:100%;
+    background-color: #e8491d;
+    text-align: center;
+}
+
+
+
+
 
