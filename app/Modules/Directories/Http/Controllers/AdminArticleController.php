@@ -23,6 +23,7 @@ class AdminArticleController extends AdminAppController
      */
     public function index()
     {
+        $this->page_title('Browse All Articles');
         $articles = Article::all();
         $categories = Category::all();
         $article_categories =ArticleCategory::all();
@@ -39,7 +40,7 @@ class AdminArticleController extends AdminAppController
     {
         $this->page_title('Select Directory');
         $directories = Directory::all();
-        return view('directories::articles.create',compact('directories'));
+        return view('directories::articles.select',compact('directories'));
     }
 
 
@@ -49,14 +50,25 @@ class AdminArticleController extends AdminAppController
         $directory =Directory::where('title', $request->dir)->first();
         $fields = Field::all();
         $dir_fields = $directory->fields()->get();
-        return view('directories::articles.create',compact('dir_fields','fields'));
+        $directory = $directory->id;
+        return view('directories::articles.create',compact('dir_fields','fields','directory'));
     }
 
 
 
     public function store(Request $request)
     {
-        dd('create');
+        //dd($request->except(['_token']));
+       // $request = $request->except(['_token']);
+        $article = new Article();
+        $article->title = $request->title;
+        $article->summary = $request->summary;
+        $article->description = $request->description;
+        $article->directory_id = $request->directory_id;
+        $article->f_making = $request->f_making;
+        $article->save();
+//        $article->save($request->except(['_token']));
+
     }
 
     /**

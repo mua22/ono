@@ -82,7 +82,6 @@
                     </tr>
                 @endforeach
                 </tbody>
-                <tfooter></tfooter>
             </table>
         </div>
 

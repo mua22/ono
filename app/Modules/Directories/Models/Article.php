@@ -21,4 +21,10 @@ class Article extends Model
             ]
         ];
     }
+    protected $fillable = ['title','summary','description','directory_id'];
+    public function categories()
+    {
+        return $this->belongsToMany(Category::class,'article_category');
+    }
+
 }

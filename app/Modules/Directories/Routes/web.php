@@ -19,11 +19,11 @@ Route::group(['prefix' => 'directories'], function () {
 
 Route::group(['prefix' => 'admin'], function () {
     Route::resource('directories','DirectoriesController');
-
+    //Categories Routes
     Route::resource('categories','CategoriesController');
     Route::get('/categories/{directory}/create',['as' => 'category.add', 'uses' => 'CategoriesController@create']);
     Route::post('/categories/{directory}/store', ['as' => 'category.store', 'uses' => 'CategoriesController@store']);
-
+    //fields Routes
     Route::resource('fields','FieldsController');
     Route::delete('/fields/{field_id}/{dir_id}',['as' => 'fields.destroy', 'uses' => 'FieldsController@destroy']);
     Route::get('/fields/create/{directory}',['as' => 'fields.add', 'uses' => 'FieldsController@create']);

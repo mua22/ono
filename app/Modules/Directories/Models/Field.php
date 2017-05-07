@@ -25,4 +25,8 @@ class Field extends Model
 
     protected $fillable = ['title', 'description'];
 
+    public function directories()
+    {
+        return $this->belongsToMany(Directory::class,'directory_fields');
+    }
 }
