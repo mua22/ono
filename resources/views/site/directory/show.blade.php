@@ -1,16 +1,7 @@
 @extends('layouts.site')
 @section('content')
 
-    <div class="row">
 
-
-        <div class="w3-pannel w3-card col-md-3" >
-            @yield('sidebar')
-            <h1>side bar</h1>
-        </div>
-
-        <div class="col-md-9">
-            <div class="w3-pannel w3-card col-md-12 adjust-col">
                 <div class="w3-container">
                     <div class="row">
                         <h1>{{$directory->title}}</h1>
@@ -37,14 +28,7 @@
 
 
                 </div>
-            </div>
-
-        </div>
-
-    </div>
 
 
-    <div class="row">
 
-    </div>
 @endsection

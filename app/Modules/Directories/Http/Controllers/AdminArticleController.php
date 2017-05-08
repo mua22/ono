@@ -60,13 +60,21 @@ class AdminArticleController extends AdminAppController
     {
         //dd($request->except(['_token']));
        // $request = $request->except(['_token']);
+        $directory = Directory::find($request->directory_id);
+        $fields = $directory->fields()->get();
         $article = new Article();
         $article->title = $request->title;
         $article->summary = $request->summary;
         $article->description = $request->description;
         $article->directory_id = $request->directory_id;
-        $article->f_making = $request->f_making;
+        foreach ($fields as $field) {
+                $field = 'f-'.$field->slug;
+                $article->$field = $request->$field;
+
+        }
+
         $article->save();
+        return redirect('admin/articles');
 //        $article->save($request->except(['_token']));
 
     }

@@ -23,7 +23,7 @@
 
                     <div class="form-group">
                         <label>{{$dir_field->title}}</label>
-                        <input type="text" class="form-control" name="f_{{$dir_field->slug}}" placeholder="Enter {{$dir_field->title}}">
+                        <input type="text" class="form-control" name="f-{{$dir_field->slug}}" placeholder="Enter {{$dir_field->title}}">
                     </div>
 
                 @endforeach

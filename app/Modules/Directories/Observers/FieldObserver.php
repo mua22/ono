@@ -18,7 +18,7 @@ class FieldObserver
     public function creating(Field $field)
     {
         Schema::table('articles',function($table) use ($field){
-            $table->string('f-'.$field->slug);
+            $table->string('f-'.$field->slug)->nullable();
         });
     }
 }

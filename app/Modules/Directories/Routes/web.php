@@ -33,7 +33,7 @@ Route::group(['prefix' => 'admin'], function () {
     //Articles Routes
     Route::get('/articles',['as' => 'articles.index', 'uses' => 'AdminArticleController@index']);
 
-    Route::post('/articles/create',['as' => 'articles.create', 'uses' => 'AdminArticleController@create']);
+    Route::post('/articles/create/',['as' => 'articles.create', 'uses' => 'AdminArticleController@create']);
     Route::get('/articles/select',['as' => 'articles.select', 'uses' => 'AdminArticleController@selectDirectory']);
     Route::post('/articles/store/',['as' => 'articles.store', 'uses' => 'AdminArticleController@store']);
 
