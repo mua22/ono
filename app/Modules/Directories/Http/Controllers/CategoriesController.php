@@ -44,6 +44,7 @@ class CategoriesController extends AdminAppController
     public function store(Request $request, Directory $directory)
     {
         $directory->categories()->create(['title' => $request->title , 'description' => $request->description]);
+        flash('New Category Created')->success();
         return redirect('admin/categories/'.$directory->id);
 
     }
@@ -59,7 +60,8 @@ class CategoriesController extends AdminAppController
         $this->page_title('Categories Manager');
         $directory = Directory::findOrFail($id);
         $directories = Directory::all();
-        return view('directories::categories.show', compact('directory','directories'));
+        $dir = $id;
+        return view('directories::categories.show', compact('directory','directories','dir'));
     }
 
     /**
@@ -68,11 +70,11 @@ class CategoriesController extends AdminAppController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function editing($cat, $dir)
     {
-        $category = Category::findOrFail($id);
+        $category = Category::findOrFail($cat);
         $this->page_title('Editing '.$category->title);
-        return view('directories::categories.edit', compact('category'));
+        return view('directories::categories.edit', compact('category','dir'));
 
     }
 
@@ -87,9 +89,9 @@ class CategoriesController extends AdminAppController
     {
         $category = Category::findOrFail($id);
         $category->updateCategory($request);
-        return redirect('admin/categories');
-        return back();
+        flash('Category Updated')->warning();
 
+        return redirect('admin/categories/'.$request->dir);
     }
 
     /**
@@ -102,6 +104,7 @@ class CategoriesController extends AdminAppController
     {
         $category = Category::findOrFail($id);
         $category->delete();
+        flash('Category Deleted')->error();
         return back();
     }
 }

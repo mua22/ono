@@ -1,6 +1,9 @@
 @extends('layouts.admin')
 
 @section('content')
+    <div class="container">
+        @include('flash::message')
+    </div>
     <div class="box box-primary">
         <div class="box-header">
             <div class="box-tools">

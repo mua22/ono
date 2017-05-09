@@ -185,6 +185,8 @@ return [
         Caffeinated\Menus\MenusServiceProvider::class,
         DaveJamesMiller\Breadcrumbs\ServiceProvider::class,
         Zizaco\Entrust\EntrustServiceProvider::class,
+        Laracasts\Flash\FlashServiceProvider::class,
+
     ],
 
     /*

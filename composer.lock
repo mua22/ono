@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "ec7e217eb687b7ebb8788a34306ba66f",
-    "content-hash": "a15134adf797f394dc9ba23d6fdd1e6a",
+    "hash": "4cc1a5bdceff2514ad684b579f83a188",
+    "content-hash": "0009c4c6fbcd1dd35fb3550aabb054e0",
     "packages": [
         {
             "name": "barryvdh/laravel-debugbar",
@@ -670,6 +670,50 @@
                 "tokenizer"
             ],
             "time": "2016-12-07 09:37:55"
+        },
+        {
+            "name": "laracasts/flash",
+            "version": "3.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laracasts/flash.git",
+                "reference": "1c7658652e10791d934a37bc0f6f0bd5ce5ac73f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laracasts/flash/zipball/1c7658652e10791d934a37bc0f6f0bd5ce5ac73f",
+                "reference": "1c7658652e10791d934a37bc0f6f0bd5ce5ac73f",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "~5.0",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "dev-master",
+                "phpunit/phpunit": "^6.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Laracasts\\Flash": "src/"
+                },
+                "files": [
+                    "src/Laracasts/Flash/functions.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jeffrey Way",
+                    "email": "jeffrey@laracasts.com"
+                }
+            ],
+            "description": "Easy flash notifications",
+            "time": "2017-04-26 16:55:22"
         },
         {
             "name": "laravel/framework",
@@ -2579,12 +2623,12 @@
             "version": "0.9.8",
             "source": {
                 "type": "git",
-                "url": "https://github.com/padraic/mockery.git",
+                "url": "https://github.com/mockery/mockery.git",
                 "reference": "1e5e2ffdc4d71d7358ed58a6fdd30a4a0c506855"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/padraic/mockery/zipball/1e5e2ffdc4d71d7358ed58a6fdd30a4a0c506855",
+                "url": "https://api.github.com/repos/mockery/mockery/zipball/1e5e2ffdc4d71d7358ed58a6fdd30a4a0c506855",
                 "reference": "1e5e2ffdc4d71d7358ed58a6fdd30a4a0c506855",
                 "shasum": ""
             },

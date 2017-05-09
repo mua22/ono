@@ -1,6 +1,7 @@
 <div class="box box-primary">
     <form action="@if(isset($category)){{route('categories.update',$category->id)}}@else{{route('category.store',$directory->id)}}@endif" role="form" class="form-horizontal" method="post">
         @if(isset($category))
+            <input type="hidden" name="dir" value="{{$dir}}">
             {{method_field('PATCH')}}
         @else
             {{method_field('POST')}}

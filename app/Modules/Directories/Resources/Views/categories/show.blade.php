@@ -1,7 +1,9 @@
 @extends('layouts.admin')
 
 @section('content')
-
+<div class="container">
+    @include('flash::message')
+</div>
 <div class="box box-primary">
 
 	<div class="box-body">
@@ -57,7 +59,7 @@
 				<tr>
 					<td>{{$category->title}}</td>
 					<td class="text-right"><div class="btn btn-flat">
-							<a href="{{route('categories.edit',$category->id)}}" class="btn btn-info btn-flat"><i class="fa fa-edit"></i>Edit</a>
+							<a href="{{route('category.editing',array($category->id,$dir))}}" class="btn btn-info btn-flat"><i class="fa fa-edit"></i>Edit</a>
 							<form action="{{route('categories.destroy',[$category->id,$directory->id])}}" method="post" style="display: inline;">
 								<input type="hidden" name="_token" value="{{csrf_token()}}">
 								{{method_field('delete')}}

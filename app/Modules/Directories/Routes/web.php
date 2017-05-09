@@ -23,6 +23,8 @@ Route::group(['prefix' => 'admin'], function () {
     Route::resource('categories','CategoriesController');
     Route::get('/categories/{directory}/create',['as' => 'category.add', 'uses' => 'CategoriesController@create']);
     Route::post('/categories/{directory}/store', ['as' => 'category.store', 'uses' => 'CategoriesController@store']);
+    Route::get('/categories/{cat}/{dir}/editing',['as' => 'category.editing', 'uses' => 'CategoriesController@editing']);
+
     //fields Routes
     Route::resource('fields','FieldsController');
     Route::delete('/fields/{field_id}/{dir_id}',['as' => 'fields.destroy', 'uses' => 'FieldsController@destroy']);

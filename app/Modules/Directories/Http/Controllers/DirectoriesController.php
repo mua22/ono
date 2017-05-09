@@ -49,6 +49,7 @@ class DirectoriesController extends AdminAppController
         $directory->description = $request->description;
         $directory->directory_type_id = 3;
         $directory->save();
+        flash('New Directory Added')->success();
         return redirect('admin/directories');
     }
 
@@ -90,6 +91,7 @@ class DirectoriesController extends AdminAppController
         $directory->title =$request->title;
         $directory->description = $request->description;
         $directory->save();
+        flash('Directory Updated')->warning();
         return redirect('admin/directories');
     }
 
@@ -103,6 +105,7 @@ class DirectoriesController extends AdminAppController
     {
         $directory = Directory::findOrFail($id);
         $directory->delete();
+        flash('Directory Deleted')->error();
         return back();
     }
 }
