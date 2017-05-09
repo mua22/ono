@@ -20,7 +20,7 @@ class DirectoriesController extends AdminAppController
     {
         $this->page_title('Browse All Directories');
         $directories = Directory::all();
-        return view('directories::directories.index')->with(compact('directories'));
+        return view('directories::directories.index',compact('directories'));
     }
 
     /**
@@ -31,7 +31,7 @@ class DirectoriesController extends AdminAppController
     public function create()
     {
         $this->page_title('Create New Directory');
-        return view('directories::directories.create')->with(compact('directory'));
+        return view('directories::directories.create');
     }
 
     /**
@@ -42,7 +42,14 @@ class DirectoriesController extends AdminAppController
      */
     public function store(Request $request)
     {
-        dd('store');
+
+//        dd('store');
+        $directory = new Directory();
+        $directory->title =$request->title;
+        $directory->description = $request->description;
+        $directory->directory_type_id = 3;
+        $directory->save();
+        return redirect('admin/directories');
     }
 
     /**
@@ -78,7 +85,12 @@ class DirectoriesController extends AdminAppController
      */
     public function update(Request $request, $id)
     {
-        dd('update');
+//        dd('update');
+        $directory = Directory::findOrFail($id);
+        $directory->title =$request->title;
+        $directory->description = $request->description;
+        $directory->save();
+        return redirect('admin/directories');
     }
 
     /**
@@ -89,6 +101,8 @@ class DirectoriesController extends AdminAppController
      */
     public function destroy($id)
     {
-        //
+        $directory = Directory::findOrFail($id);
+        $directory->delete();
+        return back();
     }
 }

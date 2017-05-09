@@ -7,31 +7,32 @@
 	<div class="box-body">
 
 
-		
+
 
 		<table class="table table-hover table-striped">
 			<thead>
-				<tr>
+			<tr>
 
-					<th>Directory Title</th>
+				<th><h2><b>Directory Title</b></h2></th>
 
-					<th class="action-td"></th>
-				</tr>
+				<th class="action-td"></th>
+			</tr>
 			</thead>
 			<tbody>
-				@foreach($directories as $directory)
+			@foreach($directories as $directori)
 				<tr>
-					<td>{{$directory->title}}</td>
-					<td class="text-right"><div class="btn-group-horizontal">
-						<a href="{{route('fields.show',[$directory->id])}}" class="btn btn-info btn-xs"><i class="fa fa-angle-double-right"></i>View Fields</a>
+					<td>{{$directori->title}}</td>
+					<td class="text-right"><div class="btn-btn-flat">
+							<a href="{{route('fields.show',$directori->id)}}" class="btn btn-info btn-flat"><i class="fa fa-angle-double-right"></i>View Fields</a>
 
 
-					</div></td>
+						</div></td>
 				</tr>
-				@endforeach
+			@endforeach
 			</tbody>
 
 		</table>
+
 	</div>
 
 </div>
