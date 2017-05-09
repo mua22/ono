@@ -46,6 +46,10 @@ class AdminArticleController extends AdminAppController
 
     public function create(Request $request)
     {
+
+        foreach ($request->dir as $dir)
+
+
         $this->page_title('Create Article');
         $directory =Directory::where('title', $request->dir)->first();
         $fields = Field::all();
@@ -91,9 +95,13 @@ class AdminArticleController extends AdminAppController
     }
 
 
-    public function edit(Article $id)
+    public function edit(Article $article)
     {
-        return $id;
+        $categories =  $article->categories()->get();
+            $directory = Directory::find($article->directory_id);
+
+            $dir_fields = $directory->fields()->get();
+            return view('directories::articles.edit',compact('categories','directory','dir_fields','article'));
 
     }
 

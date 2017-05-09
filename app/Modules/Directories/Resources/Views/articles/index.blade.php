@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
-    <h1>Browse All Articles</h1>
+    <h1>Articles</h1>
     <div class="box box-primary">
         <div class="box-header">
             <div class="box-tools">

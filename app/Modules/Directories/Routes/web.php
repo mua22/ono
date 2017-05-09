@@ -40,7 +40,9 @@ Route::group(['prefix' => 'admin'], function () {
     Route::post('/articles/store/',['as' => 'articles.store', 'uses' => 'AdminArticleController@store']);
 
 
-    Route::get('/articles/edit/{id}',['as' => 'articles.edit', 'uses' => 'AdminArticleController@edit']);
+    Route::get('/articles/edit/{article}',['as' => 'articles.edit', 'uses' => 'AdminArticleController@edit']);
+    Route::patch('/articles/update/{article}',['as' => 'articles.update', 'uses' => 'AdminArticleController@update']);
+
     Route::get('/articles/delete/{id}',['as' => 'articles.destroy', 'uses' => 'AdminArticleController@destroy']);
 
 
