@@ -1,7 +1,12 @@
 @extends('layouts.admin')
+@section('style')
+	<link rel="stylesheet" media="screen" href="{{ URL::asset('css/css/style.css') }}">
+@endsection
 
 @section('content')
-
+	<div class="container flash">
+		@include('flash::message')
+	</div>
 <div class="box box-primary">
 
 	<div class="box-body">
@@ -57,7 +62,7 @@
 				<tr>
 					<td>{{$field->title}}</td>
 					<td class="text-right"><div class="btn btn-flat">
-						<a href="{{route('fields.edit',$field->id)}}" class="btn btn-info btn-flat"><i class="fa fa-edit"></i>Edit</a>
+						<a href="{{route('fields.editing',array($field->id,$dir))}}" class="btn btn-info btn-flat"><i class="fa fa-edit"></i>Edit</a>
 						<form action="{{route('fields.destroy',[$field->id,$directory->id])}}" method="post" style="display: inline;">
 							<input type="hidden" name="_token" value="{{csrf_token()}}">
 							{{method_field('delete')}}

@@ -4,6 +4,7 @@
     <form action="@if(isset($field)){{route('fields.update',$field->id)}}@else{{route('fields.submit',$directory->id)}}@endif" role="form" class="form-horizontal" method="post">
         @if(isset($field))
             {{method_field('PATCH')}}
+            <input type="hidden" name="dir" value="{{$dir}}">
         @else
             {{method_field('POST')}}
         @endif

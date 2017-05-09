@@ -31,6 +31,7 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('/fields/create/{directory}',['as' => 'fields.add', 'uses' => 'FieldsController@create']);
     Route::post('/fields/add/{directory}',['as' => 'fields.submit', 'uses' => 'FieldsController@store']);
     Route::post('/fields/{directory}',['as' => 'fields.submit', 'uses' => 'FieldsController@store']);
+    Route::get('/fields/{fie}/{dir}/editing',['as' => 'fields.editing', 'uses' => 'FieldsController@editing']);
 
     //Articles Routes
     Route::get('/articles',['as' => 'articles.index', 'uses' => 'AdminArticleController@index']);
