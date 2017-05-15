@@ -24,7 +24,7 @@ class AdminArticleController extends AdminAppController
     public function index()
     {
         $this->page_title('Browse All Articles');
-        $articles = Article::all();
+        $articles = Article::paginate(config('Directory.perpage'));
         $categories = Category::all();
         $article_categories =ArticleCategory::all();
         return view('directories::articles.index',compact('articles','article_categories','categories'));
@@ -47,7 +47,7 @@ class AdminArticleController extends AdminAppController
     public function create(Request $request)
     {
 
-        foreach ($request->dir as $dir)
+        //foreach ($request->dir as $dir)
 
 
         $this->page_title('Create Article');

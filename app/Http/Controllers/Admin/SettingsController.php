@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Common\SettingsFileLoader;
 use App\Modules\Admin\Http\Controllers\AdminAppController;
-use App\Setting;
+use App\Modules\Settings\Models\Setting;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Config;
