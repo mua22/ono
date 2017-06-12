@@ -15,7 +15,10 @@
                 <label>Description</label>
                 <textarea class="form-control" name="description" placeholder="Enter Description"> @if(isset($article)){{$article->description}}@endif</textarea>
             </div>
-            
+            <div class="form-group">
+                <label>Upload Image</label>
+                <input type="file" class="form-control" name="image" @if(isset($article))value="{{$article->image}}"@endif>
+            </div>
             <input type="hidden"  name="directory_id" value="{{$directory}}">
             @foreach($dir_fields as $dir_field)
 
