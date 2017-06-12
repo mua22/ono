@@ -41,6 +41,7 @@ class FieldsController extends AdminAppController
 
 
             $directory->fields()->create(['title' => $request->title, 'description' => $request->description]);
+            flash('New Field Created')->success();
             return redirect('admin/fields/'.$directory->id);
     }
 
@@ -51,17 +52,18 @@ class FieldsController extends AdminAppController
         $directory=Directory::find($id);
         $directories = Directory::all();
         $this->page_title('Fields Manager');
-        return view('directories::fields.show',compact('directory','directories'));
+        $dir = $id;
+        return view('directories::fields.show',compact('directory','directories','dir'));
         
     }
 
 
-    public function edit($id)
+    public function editing($id, $dir)
     {
         //
         $field = Field::findOrFail($id);
         $this->page_title('Editing '.$field->title);
-        return view('directories::fields.edit')->with(compact('field'));
+        return view('directories::fields.edit',compact('field','dir'));
     }
 
 
@@ -72,7 +74,8 @@ class FieldsController extends AdminAppController
             $field->title=$request->title;
             $field->description=$request->description;
             $field->save();
-            return back();
+            flash('Field Updated')->warning();
+            return redirect('admin/fields/'.$request->dir);
 
         }
 
@@ -83,6 +86,7 @@ class FieldsController extends AdminAppController
     {
 
         $directory_field=DirectoryField::where('field_id',$field_id)->where('directory_id', $directory_id)->delete();
+        flash('Field Deleted')->error();
         return redirect('admin/fields/'.$directory_id);
     }
 }

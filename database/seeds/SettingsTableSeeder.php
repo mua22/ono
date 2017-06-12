@@ -14,6 +14,8 @@ class SettingsTableSeeder extends Seeder
         $this->insertSetting('Website Title','title','Ono','Site','text','The title of the web page to show on frontend');
         $this->insertSetting('Website Tagline','tagline','A Laravel Powered CMS+Directory System','Site','textarea');
         $this->insertSetting('Email','email','usman.akram@gmail.com','Site');
+
+        $this->insertSetting('Records Per Page','perpage','10','Directory');
     }
 
     private function insertSetting($title,$key,$value,$prefix,$input_type='text',$description='',$editable=1)
