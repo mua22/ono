@@ -41,10 +41,11 @@ Route::group(['prefix' => 'admin'], function () {
 
 
     Route::get('/articles/edit/{article}',['as' => 'articles.edit', 'uses' => 'AdminArticleController@edit']);
-    Route::patch('/articles/update/{article}',['as' => 'articles.update', 'uses' => 'AdminArticleController@update']);
+    Route::post('/articles/update/{article}',['as' => 'articles.update', 'uses' => 'AdminArticleController@update']);
 
     Route::get('/articles/delete/{id}',['as' => 'articles.destroy', 'uses' => 'AdminArticleController@destroy']);
 
+    Route::get('/articles/deletecategory/{article}/{category}',['as' => 'articles.deleteCategory', 'uses' => 'AdminArticleController@deleteLinkedCategories']);
 
 
 

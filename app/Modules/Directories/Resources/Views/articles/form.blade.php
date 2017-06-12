@@ -2,11 +2,7 @@
     <div class="col-md-4">
         <form method="post" action="@if(isset($article)){{route('articles.update',$article->id)}}@else{{route('articles.store')}}@endif">
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
-            @if(isset($article))
-                {{method_field('PATCH')}}
-                @else
                 {{method_field('POST')}}
-            @endif
             <div class="form-group">
                 <label>Title</label>
                 <input type="text" class="form-control" name="title" placeholder="Enter title"  @if(isset($article))value="{{$article->title}}"@endif>
@@ -20,18 +16,18 @@
                 <textarea class="form-control" name="description" placeholder="Enter Description"> @if(isset($article)){{$article->description}}@endif</textarea>
             </div>
             <input type="hidden"  name="directory_id" value="{{$directory}}">
-            <?php $f = 'f-';?>
             @foreach($dir_fields as $dir_field)
 
                 <div class="form-group">
                     <label>{{$dir_field->title}}</label>
-                    <input type="text" class="form-control" name="f-{{$dir_field->slug}}" placeholder="Enter {{$dir_field->title}}" @if(isset($article))value="{{$article->$f.$dir_field->slug}}"@endif>
+                    <?php $col_name = "f-".$dir_field->slug?>
+                    <input type="text" class="form-control" name="f-{{$dir_field->slug}}" placeholder="Enter {{$dir_field->title}}" @if(isset($article))value="{{$article->$col_name}}"@endif>
                 </div>
 
             @endforeach
 
 
-            <input type="submit" class="btn btn-danger" value="Submit">
+            <input type="submit" class="btn btn-danger" value="Submit" name="submit">
         </form>
     </div>
 

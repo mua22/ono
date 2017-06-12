@@ -35,12 +35,21 @@
                                 @if($article->id == $article_category->article_id)
                                     @foreach($categories as $category)
                                         @if($category->id ==$article_category->category_id)
-                                            <li>{{$category->title}}</li>
+
+
+
+                                                <li>{{$category->title}}
+
+
+                                                </li>
+
+
                                         @endif
                                     @endforeach
                                 @endif
                             @endforeach
                         </td>
+
 
 
                         <td class="text-right">

@@ -47,9 +47,6 @@ class AdminArticleController extends AdminAppController
     public function create(Request $request)
     {
 
-        foreach ($request->dir as $dir)
-
-
         $this->page_title('Create Article');
         $directory =Directory::where('title', $request->dir)->first();
         $fields = Field::all();
@@ -83,32 +80,67 @@ class AdminArticleController extends AdminAppController
 
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function show($id)
     {
         //
     }
 
 
-    public function edit(Article $article)
+    public function deleteLinkedCategories(Request $request,$article_id,$category_id)
     {
-        $categories =  $article->categories()->get();
-            $directory = Directory::find($article->directory_id);
+        ArticleCategory::where('article_id',$article_id)->where('category_id',$category_id)->delete();
+        return redirect()->route('articles.index');
 
-            $dir_fields = $directory->fields()->get();
-            return view('directories::articles.edit',compact('categories','directory','dir_fields','article'));
 
     }
 
 
-    public function update(Request $request)
+    public function edit(Article $article)
     {
-        dd('update');
+
+        $article_categories =  $article->categories()->get();
+        $directory = Directory::find($article->directory_id);
+        $categories = Category::all();
+        $dir_fields = $directory->fields()->get();
+        return view('directories::articles.edit',compact('categories','article_categories','directory','dir_fields','article'));
+
+    }
+
+
+    public function update(Request $request,Article $article)
+    {
+       if (isset($request->categories)){
+            $categories = Category::whereIn('title',$request->categories)->get();
+           foreach ($categories as $category){
+               $article_category = new ArticleCategory();
+               $article_category->article_id = $article->id;
+               $article_category->category_id = $category->id;
+               $article_category->save();
+
+           }
+           return redirect()->route('articles.index');
+       }
+
+       elseif (isset($request->submit)){
+
+           $directory = Directory::find($article->directory_id);
+           $fields = $directory->fields()->get();
+           $article->title = $request->title;
+           $article->summary = $request->summary;
+           $article->description = $request->description;
+           foreach ($fields as $field) {
+               $field = 'f-'.$field->slug;
+               $article->$field = $request->$field;
+
+           }
+           $article->save();
+           return redirect()->route('articles.index');
+
+       }
+
+
+
     }
 
 
