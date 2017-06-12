@@ -19,7 +19,7 @@ class MenusTableSeeder extends Seeder
             $link = new \App\Modules\Menus\Models\Link();
             $link->title = 'Link '+$i;
             $link->url = '/';
-            $link->parent_id = null;
+            $link->parent_id = 1;
             $link->menu_id = 1;
             $link->save();
         }

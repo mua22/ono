@@ -186,6 +186,7 @@ return [
         DaveJamesMiller\Breadcrumbs\ServiceProvider::class,
         Zizaco\Entrust\EntrustServiceProvider::class,
         Laracasts\Flash\FlashServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
 
     ],
 
@@ -241,6 +242,7 @@ return [
         'Menu' => Caffeinated\Menus\Facades\Menu::class,
         'Breadcrumbs' => DaveJamesMiller\Breadcrumbs\Facade::class,
         'Entrust'   => Zizaco\Entrust\EntrustFacade::class,
+        'Image' => Intervention\Image\Facades\Image::class,
     ],
 
 ];

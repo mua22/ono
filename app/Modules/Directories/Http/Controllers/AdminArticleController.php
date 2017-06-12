@@ -7,11 +7,13 @@ use App\Modules\Directories\Models\ArticleCategory;
 use App\Modules\Directories\Models\Category;
 use App\Modules\Admin\Http\Controllers\AdminAppController;
 use App\Modules\Directories\Models\Field;
+
 use Illuminate\Http\Request;
 use App\Modules\Directories\Models\Article;
 use App\Http\Requests;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
+use Image;
 
 
 class AdminArticleController extends AdminAppController
@@ -72,6 +74,15 @@ class AdminArticleController extends AdminAppController
                 $field = 'f-'.$field->slug;
                 $article->$field = $request->$field;
 
+        }
+
+        if($request->hasFile('image')){
+
+            $image = $request->file('image');
+            $filename = time() . '.' . $image->getClientOriginalExtension();
+            $location = public_path('images/'.$filename);
+            Image::make($image)->resize(800,400)->save($location);
+            $article->image = $filename;
         }
 
         $article->save();

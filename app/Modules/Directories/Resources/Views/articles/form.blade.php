@@ -1,6 +1,6 @@
 
     <div class="col-md-4">
-        <form method="post" action="@if(isset($article)){{route('articles.update',$article->id)}}@else{{route('articles.store')}}@endif">
+        <form method="post" action="@if(isset($article)){{route('articles.update',$article->id)}}@else{{route('articles.store')}}@endif" enctype="multipart/form-data">
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 {{method_field('POST')}}
             <div class="form-group">
@@ -15,6 +15,7 @@
                 <label>Description</label>
                 <textarea class="form-control" name="description" placeholder="Enter Description"> @if(isset($article)){{$article->description}}@endif</textarea>
             </div>
+            
             <input type="hidden"  name="directory_id" value="{{$directory}}">
             @foreach($dir_fields as $dir_field)
 

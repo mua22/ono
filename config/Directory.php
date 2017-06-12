@@ -1,3 +1,3 @@
 <?php  return array (
-  'perpage' => '1',
+  'perpage' => '10',
 );

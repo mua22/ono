@@ -9,7 +9,7 @@
             @foreach($articles as $article)
 
                 <li class="w3-padding-16">
-                    <img src="/Capture.PNG" class="w3-left w3-square w3-margin-right" style="width:50px">
+                    <img src="{{asset('images/'. $article->image)}}" class="w3-left w3-square w3-margin-right" style="width:50px">
                     @foreach($columns as $column)
 
                         @if($column == 'id' || $column == 'slug' || $column == 'directory_id' || $column == 'created_at' || $column == 'updated_at')
