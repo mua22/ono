@@ -32,6 +32,11 @@
                 </li>
             @endif
         @endforeach
+        <li>
+            <a href="/admin/logout"> Logout
+                <i class="fa fa-angle-left pull-right"></i>
+            </a>
+        </li>
 
     </ul>
 

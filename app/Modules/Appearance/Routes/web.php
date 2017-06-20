@@ -11,7 +11,7 @@
 |
 */
 
-Route::group(['prefix' => 'appearance'], function () {
+Route::group(['prefix' => 'appearance','middleware' => ['admin']], function () {
     Route::get('/', function () {
         dd('This is the Appearance module index page. Build something great!');
     });

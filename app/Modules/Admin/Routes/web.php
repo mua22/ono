@@ -11,7 +11,7 @@
 |
 */
 
-Route::group(['prefix' => 'admin'], function () {
+Route::group(['prefix' => 'admin','middleware' => ['admin']], function () {
     Route::get('/', function () {
         dd('This is the Admin module index page. Build something great!');
     });

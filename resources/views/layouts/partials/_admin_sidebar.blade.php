@@ -24,7 +24,7 @@
             <a href="#">
                 <i class="fa fa-edit"></i>
                 <span>Setup Listings</span>
-                <i class="fa fa-angle-left pull-right"></i>
+                <i class="fa fa-angle-left pull-0right"></i>
             </a>
             <ul class="treeview-menu">
                 <li><a href="{{route('directory.index')}}"><i class="fa fa-folder-o"></i> Directories Manager</a></li>

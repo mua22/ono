@@ -22,12 +22,22 @@ Route::get('/category/{slug}','Site\ArticleController@index');
 Route::get('/directory/{directory}','Site\DirectoryController@showCategories');
 
 
-Auth::routes();
+//Auth::routes();
 
 
 Route::get('/home', 'HomeController@index');
 
-Route::group(['prefix' => 'admin'], function () {
+Route::get('/admin/login',function (){
+    session(['type' => 'none']);
+    return view('admin.login');
+});
+
+Route::post('/admin/register', 'Admin\AuthenticationController@register');
+Route::post('/admin/login', 'Admin\AuthenticationController@login');
+Route::get('/admin/logout', 'Admin\AuthenticationController@logout');
+
+Route::group(['prefix' => 'admin','middleware' => ['admin']], function () {
+
     Route::resource('directory','Admin\DirectoryController');
     //Route::get('/',['as'=>'admin.dashboard','uses'=>'DashboardController']);
     //Route::resource('fields','Admin\FieldsController');

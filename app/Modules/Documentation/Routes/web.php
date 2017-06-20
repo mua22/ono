@@ -11,6 +11,6 @@
 |
 */
 
-Route::group(['prefix' => 'admin'], function () {
+Route::group(['prefix' => 'admin','middleware' => ['admin']], function () {
     Route::get('/documentation', ['as'=>'admin.documentation','uses'=>'DocumentationController@index']);
 });
