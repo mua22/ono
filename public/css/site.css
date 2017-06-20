@@ -127,6 +127,37 @@ header .highlight, header .current a{
 
 }
 
+.leftbar{
+    padding-right: 30px;
+    padding-left: 30px;
+    padding-bottom: 20px;
+
+}
+.article-box{
+    background-color: #5fb26a;;
+    min-height: 100px;
+    color: white;
+    text-align: center;
+}
+
+.row{
+    margin-bottom: 20px;
+}
+
+p{
+    margin: 0;
+}
+
+.box-info{
+    background-color: #bce8f1;
+    border: 1px solid #bce8f1;
+}
+.rightcontent{
+    padding-right: 20px;
+}
+ul>li a{
+    text-decoration: none;
+}
 #newsletter input[type="text"]{
     width: 200px;
     border-radius:10px;

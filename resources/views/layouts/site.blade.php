@@ -80,18 +80,9 @@
     </div>
     <div class="row">
 
-
-            <div class="w3-pannel w3-card col-md-3" >
-            @yield('sidebar')
-            <h1>side bar</h1>
-            </div>
-
-        <div class="col-md-9">
-            <div class="w3-pannel w3-card col-md-12 adjust-col">
                 @yield('content')
-            </div>
 
-        </div>
+
 
     </div>
 
