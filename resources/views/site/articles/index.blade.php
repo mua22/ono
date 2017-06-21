@@ -3,37 +3,43 @@
     <div class="col-md-12">
 
         <h2>{{$category->title}}</h2>
+        <hr>
 
 
-        <ul class="w3-ul w3-card-2">
+        <ul>
             @foreach($articles as $article)
+                <div class="col-md-3 col-lg-offset-1" style="margin-bottom: 10px">
+                    <!--Image Card-->
+                    <div class="card hoverable">
+                        <div class="card-image">
+                            <div class="view overlay hm-white-slight z-depth-1">
+                                <img src="{{asset('images/'. $article->image)}}" class="img-responsive" alt="">
+                                <a href="/category/detail/{{$article->id}}">
+                                    <div class="mask waves-effect"></div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h5>{{$article->title}}</h5>
+                            <p>{{$article->description}}</p>
+                            <p>
+                                @foreach($columns as $column)
+                                    @if($column == 'id' || $column == 'slug' || $column == 'directory_id' || $column == 'created_at' || $column == 'updated_at')
+                                    @elseif($column == 'image')
+                                    @elseif($column == 'description')
+                                    @elseif($column == 'title')
+                                    @else
+                                        <span style="font-size: 10px">@if($article->$column!='') {{$article->$column}}@endif</span>
+                                    @endif
+                                @endforeach
+                            </p>
+                        </div>
 
-                <li class="w3-padding-16">
-                    <img src="{{asset('images/'. $article->image)}}" class="w3-left w3-square w3-margin-right" style="width:50px">
-                    @foreach($columns as $column)
-
-                        @if($column == 'id' || $column == 'slug' || $column == 'directory_id' || $column == 'created_at' || $column == 'updated_at')
-
-                        @elseif($column == 'title')
-                            <span class="w3-large"><a href="#">{{$article->title}}</a></span><br>
-
-                        @elseif($column == 'description')
-                            @php($description = $article->$column)
-
-                        @else
-                           <span style="font-size: 10px">@if($article->$column!=''){{$article->$column}} |@endif</span>
-
-                        @endif
-                    @endforeach
-                    <p>{{str_limit($description,50)}}</p>
-                </li>
+                    </div>
+                    <!--Image Card-->
+                </div>
             @endforeach
         </ul>
-
-
-
-
     </div>
-
-
+    <div></div>
 @endsection

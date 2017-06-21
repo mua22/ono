@@ -1,54 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.site')
+@section('content')
 
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <title>{{ config('app.name', 'Laravel Multi Auth Guard') }}</title>
-
-    <!-- Styles -->
-    <link href="/css/app.css" rel="stylesheet">
-
-    <!-- Scripts -->
-    <script>
-        window.Laravel = <?php echo json_encode([
-            'csrfToken' => csrf_token(),
-        ]); ?>
-    </script>
-</head>
-<body  style="background-image: url('/img/log.jpg');" >
-<nav {{--style="background-color: #333333" --}} class="navbar navbar-default navbar-static-top">
     <div class="container">
-        <div class="navbar-header">
-
-            <!-- Collapsed Hamburger -->
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                    data-target="#app-navbar-collapse">
-                <span class="sr-only">Toggle Navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-
-            <!-- Branding Image -->
-            <a class="navbar-brand" {{--style="color: #fff;font-weight: 900;font-size: 24px"--}}  href="{{ url('/branch') }}">
-                {{ env('APP_NAME', 'ONO') }}
-            </a>
-        </div>
-
-        <div class="collapse navbar-collapse" id="app-navbar-collapse">
-            <!-- Left Side Of Navbar -->
-            <ul class="nav navbar-nav">
-                &nbsp;
-            </ul>
-        </div>
-    </div>
-</nav>
-<div class="container">
     <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
         <div class="panel panel-info">
             <div class="panel-heading">
@@ -194,6 +147,7 @@
     </div>
 </div>
 
+{{--    {{dd(session('type'))}}--}}
 @if(session('type') == 'reg')
     <script src="/plugins/jQuery/jQuery-2.2.0.min.js"></script>
     <script>
@@ -201,9 +155,4 @@
     </script>
 @endif
 <!-- Scripts -->
-<script src="/js/app.js"></script>
-</body>
-</html>
-
-
-
+@endsection

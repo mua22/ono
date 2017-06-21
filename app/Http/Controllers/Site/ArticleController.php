@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\site;
 
+use App\Modules\Directories\Models\Article;
 use App\Modules\Directories\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -11,13 +12,21 @@ class ArticleController extends Controller
 {
     //
 
-    public function index($slug){
+    public function index($slug)
+    {
 
         $category = Category::findBySlug($slug);
         $articles = $category->articles()->get();
         $columns = Schema::getColumnListing('articles');
-        return view('site.articles.index',compact('articles','columns','category'));
+        return view('site.articles.index', compact('articles', 'columns', 'category'));
 
+    }
+
+
+    public function detail($id)
+    {
+        $article = Article::find($id);
+        return view('site.articles.detail', compact('article'));
     }
 
 

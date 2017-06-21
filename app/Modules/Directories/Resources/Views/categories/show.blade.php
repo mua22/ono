@@ -27,8 +27,6 @@
 					<td>{{$directori->title}}</td>
 					<td class="text-right"><div class="btn-btn-flat">
 							<a href="{{route('categories.show',$directori->id)}}" class="btn btn-info btn-flat"><i class="fa fa-angle-double-right"></i>View Categories</a>
-
-
 						</div></td>
 				</tr>
 			@endforeach

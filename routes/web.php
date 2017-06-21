@@ -19,6 +19,7 @@
 Route::get('/',['as'=>'home','uses'=>'SiteController']);
 // Route for list view of articles of specific category
 Route::get('/category/{slug}','Site\ArticleController@index');
+Route::get('/category/detail/{id}','Site\ArticleController@detail');
 Route::get('/directory/{directory}','Site\DirectoryController@showCategories');
 
 
@@ -28,7 +29,6 @@ Route::get('/directory/{directory}','Site\DirectoryController@showCategories');
 Route::get('/home', 'HomeController@index');
 
 Route::get('/admin/login',function (){
-    session(['type' => 'none']);
     return view('admin.login');
 });
 
