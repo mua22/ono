@@ -4579,7 +4579,7 @@ tbody.collapse.in {
   list-style: none;
 }
 
-.nav:before, .nav:after {
+.nav:before, .  nav:after {
   content: " ";
   display: table;
 }

@@ -1,6 +1,6 @@
 @extends('layouts.site')
 @section('content')
-    <div class="w3-container">
+    <div class="w3-container card hoverable" style="background-color: #fff">
         <div class="row">
             <h1>{{$directory->title}}</h1>
         </div>

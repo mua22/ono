@@ -10,33 +10,22 @@
                 <h2>{{$article->title}}</h2>
                 <table class="table table-striped">
                     <tbody>
+                    @foreach($columns as $column)
+                        @if($column == 'id' || $column == 'slug' || $column == 'directory_id' || $column == 'created_at' || $column == 'updated_at')
+                        @elseif($column == 'image')
+                        @elseif($column == 'description')
+                        @elseif($column == 'title')
+                        @else
+                            @if($article->$column!='')
+                                <tr>
+                                    <td><b>{{$column}}</b></td>
+                                    <td>{{$article->$column}}</td>
+                                </tr>
+                            @endif
+                        @endif
+                    @endforeach
                     <tr>
-                        <td style="font-weight: 900">Price</td>
-                        <td>{{$article->toArray()["f-price"]}}</td>
-                    </tr>
-                    <tr>
-                        <td style="font-weight: 900">Brand</td>
-                        <td>{{$article->toArray()["f-brand"]}}</td>
-                    </tr>
-                    <tr>
-                        <td style="font-weight: 900">Model</td>
-                        <td>{{$article->toArray()["f-model"]}}</td>
-                    </tr>
-                    <tr>
-                        <td style="font-weight: 900">Year</td>
-                        <td>{{$article->toArray()["f-year"]}}</td>
-                    </tr>
-                    <tr>
-                        <td style="font-weight: 900">MPAA rating</td>
-                        <td>{{$article->toArray()["f-mpaa-rating"]}}</td>
-                    </tr>
-                    <tr>
-                        <td style="font-weight: 900">Directed By</td>
-                        <td>{{$article->toArray()["f-directed-by"]}}</td>
-                    </tr>
-                    <tr>
-                        <td style="font-weight: 900">Release Date</td>
-                        <td>{{$article->toArray()["f-release-date"]}}</td>
+
                     </tr>
                     </tbody>
                 </table>
@@ -48,31 +37,18 @@
                     <h3>Description : </h3>
                     <p style="padding:15px;">
                         <small>
-                            Stay connected either on the phone or the Web with the Galaxy S4 I337 from Samsung. With 16
-                            GB of memory and a 4G connection, this phone stores precious photos and video and lets you
-                            upload them to a cloud or social network at blinding-fast speed. With a 17-hour operating
-                            life from one charge, this phone allows you keep in touch even on the go.
-
-                            With its built-in photo editor, the Galaxy S4 allows you to edit photos with the touch of a
-                            finger, eliminating extraneous background items. Usable with most carriers, this smartphone
-                            is the perfect companion for work or entertainment.
+                            {{$article->description}}
                         </small>
                     </p>
                     <h3>Summary : </h3>
                     <p style="padding:15px;">
                         <small style="">
-                            Stay connected either on the phone or the Web with the Galaxy S4 I337 from Samsung. With 16
-                            GB of memory and a 4G connection, this phone stores precious photos and video and lets you
-                            upload them to a cloud or social network at blinding-fast speed. With a 17-hour operating
-                            life from one charge, this phone allows you keep in touch even on the go.
-
-                            With its built-in photo editor, the Galaxy S4 allows you to edit photos with the touch of a
-                            finger, eliminating extraneous background items. Usable with most carriers, this smartphone
-                            is the perfect companion for work or entertainment.
+                            {{$article->description}}
                         </small>
                     </p>
                 </div>
             </div>
         </div>
     </div>
+
 @endsection

@@ -26,7 +26,8 @@ class ArticleController extends Controller
     public function detail($id)
     {
         $article = Article::find($id);
-        return view('site.articles.detail', compact('article'));
+        $columns = Schema::getColumnListing('articles');
+        return view('site.articles.detail', compact('article', 'columns'));
     }
 
 
