@@ -30,5 +30,4 @@ function fun1() {
     {
         selectBox.options[i].selected = true;
     }
-
 }

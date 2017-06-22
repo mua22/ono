@@ -21,7 +21,7 @@
         </div>
         <div class="form-group">
             <label>Upload Image</label>
-            <input type="file" class="form-control" name="image" @if(isset($article))value="{{$article->image}}"@endif>
+            <input type="file" class="form-control" name="image" required @if(isset($article))value="{{$article->image}}"@endif>
         </div>
         <input type="hidden" name="directory_id" value="{{$directory}}">
         @foreach($dir_fields as $dir_field)
@@ -36,25 +36,47 @@
                            placeholder="Enter {{$dir_field->title}}"
                            @if(isset($article))value="{{$article->$col_name}}"@endif required>
                 @elseif($dir_field->ftype == 'textarea')
-                    <textarea class="form-control" required placeholder="Enter {{$dir_field->title}}"@if(isset($article))value="{{$article->$col_name}}"@endif></textarea>
+                    <textarea class="form-control" name="f-{{$dir_field->slug}}"
+                              placeholder="Enter {{$dir_field->title}}"
+                              @if(isset($article))value="{{$article->$col_name}}"@endif required>
 
                 @elseif($dir_field->ftype == 'email')
-                    <input type="email" class="form-control" required>
+                    <input type="email" class="form-control" name="f-{{$dir_field->slug}}"
+                           placeholder="Enter {{$dir_field->title}}"
+                           @if(isset($article))value="{{$article->$col_name}}"@endif required>
 
                 @elseif($dir_field->ftype == 'date')
-                    <input type="date" class="form-control" required>
+                    <input type="date" class="form-control" name="f-{{$dir_field->slug}}"
+                           placeholder="Enter {{$dir_field->title}}"
+                           @if(isset($article))value="{{$article->$col_name}}"@endif required>
 
                 @elseif($dir_field->ftype == 'number')
-                    <input type="number" class="form-control" required>
+                    <input type="number" class="form-control" name="f-{{$dir_field->slug}}"
+                           placeholder="Enter {{$dir_field->title}}"
+                           @if(isset($article))value="{{$article->$col_name}}"@endif required>
                 @elseif($dir_field->ftype == 'dropdown')
-                    <input type="text" placeholder="Enter value to add in the dropdown" id="dropval" class="form-control">
-<br>
-                    <input type="button" class=" btn btn-info" value="Add in dropdown" onclick="fun()">
-                    <p id="fun"></p>
-                    <select class="form-control" name="sel[]" id="sel" style="text-align-last: center" multiple>
+
+
+                    <select class="form-control" style="text-align-last: center" name="f-{{$dir_field->slug}}"
+                            placeholder="Enter {{$dir_field->title}}"
+                            @if(isset($article))value="{{$article->$col_name}}"@endif required>
                         {{--<option disabled selected>Please Fill the above field</option>--}}
+                        @foreach($field_options as $field_option)
+
+                            @if($dir_field->pivot->field_id == $field_option->field_id)
+
+                                <option>{{$field_option->option}}</option>
+
+
+                            @endif
+                        @endforeach
+
 
                     </select>
+
+
+
+
 
 
 
@@ -66,7 +88,7 @@
         @endforeach
 
 
-        <input type="submit" class="btn btn-danger form-control" value="Submit" name="submit" onclick="fun1()">
+        <input type="submit" class="btn btn-danger form-control" value="Submit" name="submit">
     </form>
 </div>
 

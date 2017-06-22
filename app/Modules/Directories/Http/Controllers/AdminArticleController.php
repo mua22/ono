@@ -52,18 +52,18 @@ class AdminArticleController extends AdminAppController
 
         $this->page_title('Create Article');
         $directory =Directory::where('title', $request->dir)->first();
-        $fields = Field::all();
         $dir_fields = $directory->fields()->get();
         $directory = $directory->id;
-        return view('directories::articles.create',compact('dir_fields','fields','directory'));
+        $field_options = FieldOption::all();
+        return view('directories::articles.create',compact('dir_fields','directory','field_options'));
     }
 
 
 
     public function store(Request $request)
     {
-       // dd($request->except(['_token']));
-        $arr = array();
+//        dd($request->except(['_token']));
+
         $directory = Directory::find($request->directory_id);
         $fields = $directory->fields()->get();
         $article = new Article();
@@ -72,19 +72,9 @@ class AdminArticleController extends AdminAppController
         $article->description = $request->description;
         $article->directory_id = $request->directory_id;
         foreach ($fields as $field) {
-            if ($field->ftype == 'dropdown')
-            {
-                $arr[] = $field->id;
-                $field = 'f-'.$field->slug;
-                $article->$field = 'dropdown';
 
-            }
-            else{
                 $field = 'f-'.$field->slug;
                 $article->$field = $request->$field;
-
-            }
-
 
         }
 
@@ -98,14 +88,7 @@ class AdminArticleController extends AdminAppController
         }
 
         $article->save();
-        dd($arr);
-      /*  foreach ($request->sel as $se){
-            $option = new FieldOption();
-            $option->article_id = $article->id;
-            $option->field_id =;
-            $option->article_id = $article->id;
 
-        }*/
         return redirect('admin/articles');
 
 
@@ -134,7 +117,8 @@ class AdminArticleController extends AdminAppController
         $directory = Directory::find($article->directory_id);
         $categories = Category::all();
         $dir_fields = $directory->fields()->get();
-        return view('directories::articles.edit',compact('categories','article_categories','directory','dir_fields','article'));
+        $field_options = FieldOption::all();
+        return view('directories::articles.edit',compact('categories','article_categories','directory','dir_fields','article','field_options'));
 
     }
 
@@ -164,6 +148,14 @@ class AdminArticleController extends AdminAppController
                $field = 'f-'.$field->slug;
                $article->$field = $request->$field;
 
+           }
+           if($request->hasFile('image')){
+
+               $image = $request->file('image');
+               $filename = time() . '.' . $image->getClientOriginalExtension();
+               $location = public_path('images/'.$filename);
+               Image::make($image)->resize(800,400)->save($location);
+               $article->image = $filename;
            }
            $article->save();
            return redirect()->route('articles.index');

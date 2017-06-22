@@ -39,7 +39,7 @@
                     <br>
                     <input type="button" class=" btn btn-info" value="Add in dropdown" onclick="fun()">
                     <p id="fun"></p>
-                    <select class="form-control" name="sel[]" id="sel" style="text-align-last: center" multiple>
+                    <select class="form-control" name="sel[]" id="sel" style="text-align-last: center" multiple required>
                         {{--<option disabled selected>Please Fill the above field</option>--}}
 
                     </select>
@@ -51,7 +51,7 @@
     </div>
     <div class="box-footer">
 
-        <input type="submit" class="btn btn-danger form-control" value="Submit" name="submit" onclick="fun1()">
+        <input type="submit" class="btn btn-danger pull-right" value="Submit" name="submit" @if($ftype == 'dropdown') onclick="fun1()" @endif>
     </div>
     </form>
 </div>

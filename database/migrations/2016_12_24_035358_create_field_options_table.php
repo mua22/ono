@@ -17,7 +17,6 @@ class CreateFieldOptionsTable extends Migration
             $table->increments('id');
 
             $table->integer('field_id')->unsigned();
-            $table->integer('article_id')->unsigned();
             $table->string('option');
            // $table->foreign('field_id')->references('id')->on('fields');
         });

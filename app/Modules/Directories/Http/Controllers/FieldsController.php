@@ -2,6 +2,7 @@
 
 namespace App\Modules\Directories\Http\Controllers;
 
+use App\Modules\Directories\Models\FieldOption;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -48,10 +49,13 @@ class FieldsController extends AdminAppController
     public function store(Request $request,Directory $directory)
     {
         //
-dd($request);
 
-            $directory->fields()->create(['title' => $request->title, 'description' => $request->description, 'ftype' => $request->ftype]);
+            $field = $directory->fields()->create(['title' => $request->title, 'description' => $request->description, 'ftype' => $request->ftype]);
             flash('New Field Created')->success();
+            for ($i=0 ; $i<sizeof($request->sel); $i++)
+        {
+            FieldOption::create(['field_id'=>$field->id , 'option' => $request->sel[$i]]);
+        }
             return redirect('admin/fields/'.$directory->id);
     }
 
