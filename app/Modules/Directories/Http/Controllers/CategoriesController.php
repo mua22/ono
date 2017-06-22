@@ -12,11 +12,6 @@ use App\Http\Controllers\Controller;
 
 class CategoriesController extends AdminAppController
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $this->page_title('Categories Manager');
@@ -35,12 +30,7 @@ class CategoriesController extends AdminAppController
         return view('directories::categories.create',compact('directory'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request, Directory $directory)
     {
         $directory->categories()->create(['title' => $request->title , 'description' => $request->description]);

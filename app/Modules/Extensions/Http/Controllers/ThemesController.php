@@ -6,8 +6,11 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Modules\Admin\Http\Controllers\AdminAppController;
+use App\Modules\Extensions\Models\FrontTheme;
+use Illuminate\Support\Facades\DB;
 
-class ThemesController extends Controller
+class ThemesController extends AdminAppController
 {
     /**
      * Display a listing of the resource.
@@ -16,6 +19,10 @@ class ThemesController extends Controller
      */
     public function index()
     {
+        $themes = FrontTheme::all();
+        $this->page_title('Theme Manager');
+        return view('extensions::themes.index',compact('themes'));
+
         //
     }
 
@@ -57,9 +64,15 @@ class ThemesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(FrontTheme $theme)
     {
         //
+        $affected = DB::table('front_themes')->update(array('status' => 0));
+        $theme->status = 1;
+        $theme->save();
+        flash('Theme Implemented')->success();
+        return redirect()->route('themes.index');
+
     }
 
     /**
@@ -69,8 +82,14 @@ class ThemesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, FrontTheme $theme)
     {
+
+
+
+
+
+
         //
     }
 

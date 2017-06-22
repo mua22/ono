@@ -6,14 +6,27 @@ namespace App\Http\Controllers;
 use App\Modules\Directories\Models\Article;
 use App\Modules\Directories\Models\Directory;
 use App\Modules\Directories\Models\Category;
+use Caffeinated\Themes\Facades\Theme;
 use Illuminate\Http\Request;
-
+use App\Modules\Extensions\Models\FrontTheme;
+use Illuminate\Support\Facades\DB;
 class SiteController extends Controller
+
 {
     public function __invoke()
     {
+        $theme = FrontTheme::where('status',1)->first();
 
-        $articles = Article::orderBy('id', 'desc')->get();
-        return view('dashboard.index')->with('articles', $articles);
+        if($theme->name!='default'){
+            Theme::setActive($theme->name);
+            Theme::setLayout('layouts.site');
+
+
+
+        }
+        $categories = DB::table('categories')->orderBy('id', 'desc')->take(5)->get();
+        $articles = Article::orderBy('id', 'desc')->take(4)->get();
+        $directories = Directory::all();
+        return Theme::view('dashboard.index',compact('articles','categories','directories'));
     }
 }

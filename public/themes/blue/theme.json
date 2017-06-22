@@ -1,0 +1,9 @@
+{
+"slug": "black",
+"name": "black",
+"author": "Umair",
+"description": "This is an example black theme.",
+  "parent":"red",
+"version": "1.0.0"
+
+}

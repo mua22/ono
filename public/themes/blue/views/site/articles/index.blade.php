@@ -1,5 +1,7 @@
-@extends('layouts.site')
+@extends($theme_layout)
 @section('content')
+    <link href="{{ Theme::asset('blue::css/style.css') }}" rel="stylesheet">
+
     <div class="col-md-12">
 
         <h2>{{$category->title}}</h2>
@@ -8,7 +10,7 @@
 
         <ul>
             @foreach($articles as $article)
-                <div class="col-md-3 col-lg-offset-1" style="margin-bottom: 10px">
+                <div class="col-md-3" style="margin-bottom: 10px">
                     <!--Image Card-->
                     <div class="card hoverable">
                         <div class="card-image">

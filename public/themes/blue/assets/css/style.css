@@ -1,0 +1,22 @@
+.btn-primary{
+    background-color: #00a7d0;
+}
+
+.btn-primary.active{
+    background-color: #00a7d0;
+}
+
+.rightcontent{
+    background-color: lightblue;
+}
+
+.article-box{
+
+background-color: cornflowerblue;
+}
+
+.detail-blue{
+
+    background-color: lightblue;
+}
+

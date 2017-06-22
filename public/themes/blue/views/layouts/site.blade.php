@@ -85,17 +85,16 @@
 
 {{--</div>--}}
 {{--</header>--}}
-
 <div class="row" style="margin-left: 55px">
     <nav class="navbar-brand" style="background-color: #fff">
         <div class="container-fluid">
             <center>
                 <div class="col-lg-12 ">
                     <ul class="nav navbar-nav" style="margin-bottom: 5px">
-                        <li class="active btn-danger card hoverable"><a href="/">Home</a></li>
+                        <li class="btn-primary card hoverable"><a href="/">Home</a></li>
 
                         @foreach($directories as $directory)
-                            <li class="dropdown active btn-danger hoverable"><a
+                            <li class="dropdown active btn-primary hoverable"><a
                                         href="\directory/{{$directory->slug}}">{{$directory->title}} <span
                                             class="caret"></span></a>
 
@@ -127,6 +126,7 @@
         </div>
     </nav>
 </div>
+
 <hr>
 
 <div class="container">

@@ -8,6 +8,8 @@ use App\Modules\Directories\Models\Category;
 use App\Modules\Directories\Models\ArticleCategory;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Modules\Extensions\Models\FrontTheme;
+use Theme;
 
 class DirectoryController extends Controller
 {
@@ -16,6 +18,13 @@ class DirectoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+
+    }
+
+
     public function index()
     {
         //
@@ -50,12 +59,18 @@ class DirectoryController extends Controller
      */
     public function showCategories($directory)
     {
+        $theme = FrontTheme::where('status',1)->first();
 
+        if($theme->name!='default'){
+            Theme::setActive($theme->name);
+            Theme::setLayout('layouts.site');
+        }
 
         $directory = Directory::findBySlug($directory);
         $categories = $directory->categories()->get();
         $articles = ArticleCategory::all();
-        return view('site.directory.show')->with(compact('categories','directory','articles'));
+        $directories = Directory::all();
+        return Theme::view('site.directory.show')->with(compact('directories','categories','directory','articles'));
 
     }
 

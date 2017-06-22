@@ -1,6 +1,6 @@
-@extends('layouts.site')
-
+@extends($theme_layout)
 @section('content')
+    <link href="{{ Theme::asset('blue::css/style.css') }}" rel="stylesheet">
     <div class="row">
         <div class="col-md-3">
             <div class="row">
@@ -14,7 +14,7 @@
                             @endforeach
                         </ul>
                     </div>
-                    <div class="row article-box card" style="background-color: #5fb26a;">
+                    <div class="row article-box card">
                         <h4><b>Articles</b></h4>
                         <p>({{$articles->count()}})</p>
                     </div>
@@ -28,33 +28,19 @@
 
         <div class="col-md-9">
 
-            <script>
 
-
-                $(document).ready(function () {
-                    $('.owl-carousel').owlCarousel({
-
-                        items: 1,
-                        autoplay: true,
-                        autoplaySpeed: 450,
-                        loop: true,
-                    });
-                });
-
-
-            </script>
 
             <div class="col-md-12 card rightcontent" style="margin-left: 15px;padding-left: 25px">
                 <div class="row" style="color: #555555;width: 700px">
                     <h2 style="color: #35424a;font-weight: 900;font-size: 45px">Welcome to the ONO Demo Site!</h2>
                     <h3 style="font-size: 30px">ONO is best open source, repository to create websites in no time</h3>
-                    <div class="card box-info" style="background-color: #bce8f1;padding-left: 10px;margin-bottom: 5px">
+                    <div class="card box-info" style="background-color: greenyellow;padding-left: 10px;margin-bottom: 5px">
                         <ul class="">
                              
                             <li style="list-style: none"><p><b>Administrator Access: </b> go to the administration page
-                                    and use access: demoadmin
-                                    /
-                                    demoadmin
+                                    and use access<p></p> Username: demo@ono.com<p></p>
+                                    password:
+                                    123456
                                     .</p>
                             </li>
                             <li style="list-style: none">
@@ -104,8 +90,26 @@
 
 
     <div class="row">
-        <h3>Recent Articles</h3>
-        @foreach($articles as $article)
+        <h3 class="col-md-12">Recent Articles</h3>
+        <script>
+
+
+            $(document).ready(function () {
+                $('.owl-carousel').owlCarousel({
+
+                    items: 3,
+                    autoplay: true,
+                    autoplaySpeed: 450,
+                    loop: true,
+                    nav:true,
+                });
+            });
+
+
+        </script>
+
+
+                @foreach($articles as $article)
             <div class="col-md-3" style="margin-bottom: 10px">
                 <!--Image Card-->
                 <div class="card hoverable">
@@ -122,7 +126,10 @@
                     </div>
                 </div>
             </div>
-        @endforeach
+                    @endforeach
+
+
+
     </div>
 
 @endsection
