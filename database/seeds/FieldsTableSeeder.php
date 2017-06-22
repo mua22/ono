@@ -25,6 +25,8 @@ class FieldsTableSeeder extends Seeder
     {
         $field = new \App\Modules\Directories\Models\Field();
         $field->title = $title;
+        $field->ftype = 'text';
+
         $field->save();
     }
 }

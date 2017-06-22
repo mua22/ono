@@ -53,7 +53,7 @@
 			<tbody>
 			<tr><td>
 						<div class="input-group input-group-sm">
-							<a href="{{route('fields.add',$directory->id)}}" class="btn btn-info">
+							<a href="{{route('fields.select',$directory->id)}}" class="btn btn-info">
 								<i class="fa fa-plus"></i> Create New Field
 							</a>
 

@@ -28,7 +28,8 @@ Route::group(['prefix' => 'admin'], function () {
     //fields Routes
     Route::resource('fields','FieldsController');
     Route::delete('/fields/{field_id}/{dir_id}',['as' => 'fields.destroy', 'uses' => 'FieldsController@destroy']);
-    Route::get('/fields/create/{directory}',['as' => 'fields.add', 'uses' => 'FieldsController@create']);
+    Route::post('/fields/create/{directory}',['as' => 'fields.add', 'uses' => 'FieldsController@create']);
+    Route::get('/fields/create/{directory}/select',['as' => 'fields.select','uses' => 'FieldsController@select']);
     Route::post('/fields/add/{directory}',['as' => 'fields.submit', 'uses' => 'FieldsController@store']);
     Route::post('/fields/{directory}',['as' => 'fields.submit', 'uses' => 'FieldsController@store']);
     Route::get('/fields/{fie}/{dir}/editing',['as' => 'fields.editing', 'uses' => 'FieldsController@editing']);

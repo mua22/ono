@@ -17,6 +17,7 @@ class CreateFieldsTable extends Migration
             $table->increments('id');
             $table->string('title');
             $table->string('slug');
+            $table->string('ftype');
             $table->text('description')->nullable();
             $table->boolean('showtitle')->default(true);
             $table->boolean('required')->default(false);

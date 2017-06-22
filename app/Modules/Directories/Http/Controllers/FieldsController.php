@@ -25,11 +25,21 @@ class FieldsController extends AdminAppController
     }
 
 
-    public function create(Directory $directory)
+    public function create(Directory $directory, Request $request)
     {
         //
         $this->page_title('Add Field in '.$directory->title);
-        return view('directories::fields.create',compact('directory'));
+        $ftype = $request->ftype;
+        return view('directories::fields.create',compact('directory','ftype'));
+
+
+    }
+
+    public function select(Directory $directory)
+    {
+        //
+        $this->page_title('Select Field type ');
+        return view('directories::fields.select',compact('directory'));
 
 
     }
@@ -40,7 +50,7 @@ class FieldsController extends AdminAppController
         //
 
 
-            $directory->fields()->create(['title' => $request->title, 'description' => $request->description]);
+            $directory->fields()->create(['title' => $request->title, 'description' => $request->description, 'ftype' => $request->ftype]);
             flash('New Field Created')->success();
             return redirect('admin/fields/'.$directory->id);
     }

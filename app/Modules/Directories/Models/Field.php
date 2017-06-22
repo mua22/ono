@@ -23,7 +23,7 @@ class Field extends Model
     }
 
 
-    protected $fillable = ['title', 'description'];
+    protected $fillable = ['title', 'description','ftype'];
 
     public function directories()
     {

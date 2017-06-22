@@ -61,8 +61,8 @@ class AdminArticleController extends AdminAppController
 
     public function store(Request $request)
     {
-        //dd($request->except(['_token']));
-       // $request = $request->except(['_token']);
+        dd($request->except(['_token']));
+
         $directory = Directory::find($request->directory_id);
         $fields = $directory->fields()->get();
         $article = new Article();
@@ -71,8 +71,15 @@ class AdminArticleController extends AdminAppController
         $article->description = $request->description;
         $article->directory_id = $request->directory_id;
         foreach ($fields as $field) {
+            if ($field->ftype == 'dropdown')
+            {
+            }
+            else{
                 $field = 'f-'.$field->slug;
                 $article->$field = $request->$field;
+
+            }
+
 
         }
 
@@ -87,7 +94,7 @@ class AdminArticleController extends AdminAppController
 
         $article->save();
         return redirect('admin/articles');
-//        $article->save($request->except(['_token']));
+
 
     }
 

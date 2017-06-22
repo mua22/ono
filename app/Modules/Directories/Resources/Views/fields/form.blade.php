@@ -5,8 +5,10 @@
         @if(isset($field))
             {{method_field('PATCH')}}
             <input type="hidden" name="dir" value="{{$dir}}">
+
         @else
             {{method_field('POST')}}
+            <input type="hidden" name="ftype" value="{{$ftype}}">
         @endif
 
         {{csrf_field()}}
