@@ -2,6 +2,10 @@
 
 @section('content')
 <h1>Welcome to Ono</h1>
-<p>This is the landing page of the admin panel we would add widgets here later on</p>
+<div class="form-control">
+<label style="font-size: 20px">A Dream job. Create Websites in no time using ONO'S User Friendly Admin Panels.</label>
+
+    
+</div>
 @endsection
 
