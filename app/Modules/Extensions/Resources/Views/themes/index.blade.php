@@ -1,5 +1,7 @@
 @extends('layouts.admin')
-
+@section('style')
+    <link rel="stylesheet" media="screen" href="{{ URL::asset('css/css/style.css') }}">
+@endsection
 @section('content')
     <link href="/card/css/mdb.css" rel="stylesheet">
     <script type="text/javascript" src="/card/js/mdb.js"></script>

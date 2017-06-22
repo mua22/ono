@@ -21,9 +21,6 @@ class SiteController extends Controller
         if($theme->name!='default'){
             Theme::setActive($theme->name);
             Theme::setLayout('layouts.site');
-
-
-
         }
     }
     public function home()

@@ -18,5 +18,6 @@ class DatabaseSeeder extends Seeder
         $this->call(SettingsTableSeeder::class);
         $this->call(MenusTableSeeder::class);
         $this->call(DirectoryFieldsTableSeeder::class);
+        $this->call(FrontThemesTableSeeder::class);
     }
 }

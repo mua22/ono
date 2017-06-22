@@ -1,0 +1,28 @@
+.btn-primary{
+    background-color: orange;
+}
+
+.btn-primary.active{
+    background-color: orange;
+}
+
+.btn-primary>ul>li{
+
+}
+
+.rightcontent{
+    background-color: yellow;
+}
+
+.article-box{
+
+background-color: lightgoldenrodyellow;
+}
+
+.detail-orange{
+
+    background-color: yellow;
+}
+
+
+
