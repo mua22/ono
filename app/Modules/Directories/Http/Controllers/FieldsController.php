@@ -48,7 +48,7 @@ class FieldsController extends AdminAppController
     public function store(Request $request,Directory $directory)
     {
         //
-
+dd($request);
 
             $directory->fields()->create(['title' => $request->title, 'description' => $request->description, 'ftype' => $request->ftype]);
             flash('New Field Created')->success();

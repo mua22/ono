@@ -17,7 +17,7 @@ Route::group(['prefix' => 'directories'], function () {
     });
 });
 
-Route::group(['prefix' => 'admin'], function () {
+Route::group(['prefix' => 'admin','middleware' => ['admin']], function () {
     Route::resource('directories','DirectoriesController');
     //Categories Routes
     Route::resource('categories','CategoriesController');

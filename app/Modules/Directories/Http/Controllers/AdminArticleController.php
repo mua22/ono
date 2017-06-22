@@ -8,6 +8,7 @@ use App\Modules\Directories\Models\Category;
 use App\Modules\Admin\Http\Controllers\AdminAppController;
 use App\Modules\Directories\Models\Field;
 
+use App\Modules\Directories\Models\FieldOption;
 use Illuminate\Http\Request;
 use App\Modules\Directories\Models\Article;
 use App\Http\Requests;
@@ -61,8 +62,8 @@ class AdminArticleController extends AdminAppController
 
     public function store(Request $request)
     {
-        dd($request->except(['_token']));
-
+       // dd($request->except(['_token']));
+        $arr = array();
         $directory = Directory::find($request->directory_id);
         $fields = $directory->fields()->get();
         $article = new Article();
@@ -73,6 +74,10 @@ class AdminArticleController extends AdminAppController
         foreach ($fields as $field) {
             if ($field->ftype == 'dropdown')
             {
+                $arr[] = $field->id;
+                $field = 'f-'.$field->slug;
+                $article->$field = 'dropdown';
+
             }
             else{
                 $field = 'f-'.$field->slug;
@@ -93,6 +98,14 @@ class AdminArticleController extends AdminAppController
         }
 
         $article->save();
+        dd($arr);
+      /*  foreach ($request->sel as $se){
+            $option = new FieldOption();
+            $option->article_id = $article->id;
+            $option->field_id =;
+            $option->article_id = $article->id;
+
+        }*/
         return redirect('admin/articles');
 
 

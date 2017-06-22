@@ -15,12 +15,11 @@ class CreateFieldOptionsTable extends Migration
     {
         Schema::create('field_options', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('title');
-            $table->string('slug');
-            $table->text('description');
+
             $table->integer('field_id')->unsigned();
+            $table->integer('article_id')->unsigned();
+            $table->string('option');
            // $table->foreign('field_id')->references('id')->on('fields');
-            $table->timestamps();
         });
 
     }

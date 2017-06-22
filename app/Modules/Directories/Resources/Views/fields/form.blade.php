@@ -18,7 +18,7 @@
                 <label for="title" class="col-sm-2 control-label">Field Title</label>
                 <div class="col-sm-10">
                     <input type="text" name="title" class="form-control" id="title" placeholder="Title"
-                    @if(isset($field))value="{{$field->title}}"@endif>
+                    @if(isset($field))value="{{$field->title}}"@endif required>
                 </div>
             </div>
 
@@ -31,12 +31,27 @@
                 </div>
             </div>
 
+        @if($ftype == 'dropdown')
+        <div>
+            <div class="col-md-6 col-lg-offset-2">
 
+                    <input type="text" placeholder="Enter value to add in the dropdown" id="dropval" class="form-control">
+                    <br>
+                    <input type="button" class=" btn btn-info" value="Add in dropdown" onclick="fun()">
+                    <p id="fun"></p>
+                    <select class="form-control" name="sel[]" id="sel" style="text-align-last: center" multiple>
+                        {{--<option disabled selected>Please Fill the above field</option>--}}
+
+                    </select>
+            </div>
+        </div>
+        @endif
 
 
     </div>
     <div class="box-footer">
-        <button type="submit" class="btn btn-primary">Submit</button>
+
+        <input type="submit" class="btn btn-danger form-control" value="Submit" name="submit" onclick="fun1()">
     </div>
     </form>
 </div>
