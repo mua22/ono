@@ -108,7 +108,7 @@
         @foreach($articles as $article)
             <div class="col-md-3" style="margin-bottom: 10px">
                 <!--Image Card-->
-                <div class="card hoverable">
+                <div class="card hoverable" onclick="location.href='/category/detail/{{$article->id}}'" style="cursor: pointer">
                     <div class="card-image">
                         <div class="view overlay hm-white-slight z-depth-1">
                             <img src="{{asset('images/'. $article->image)}}" class="img-responsive" alt="">
