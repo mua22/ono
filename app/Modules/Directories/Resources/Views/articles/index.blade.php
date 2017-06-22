@@ -1,6 +1,11 @@
 @extends('layouts.admin')
-
+@section('style')
+    <link rel="stylesheet" media="screen" href="{{ URL::asset('css/css/style.css') }}">
+@endsection
 @section('content')
+    <div class="container flash">
+        @include('flash::message')
+    </div>
     <h1>Articles</h1>
     <div class="box box-primary">
         <div class="box-header">

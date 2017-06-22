@@ -1,6 +1,11 @@
 @extends('layouts.admin')
+@section('style')
+    <link rel="stylesheet" media="screen" href="{{ URL::asset('css/css/style.css') }}">
+@endsection
 @section('content')
-
+    <div class="container flash">
+        @include('flash::message')
+    </div>
     @include('directories::articles.form')
     <div class="col-md-offset-2 col-md-5">
         <h2>Manage Categories</h2>
@@ -44,7 +49,7 @@
         <form method="post" action="{{route('articles.update',$article->id)}}">
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-            <select class="form-control" multiple="multiple" name="categories[]" id="categories">
+            <select class="form-control" multiple="multiple" name="categories[]" id="categories" required>
                 <?php
                     foreach($categories as $category){
                             $match = 'false';

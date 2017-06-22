@@ -62,7 +62,6 @@ class AdminArticleController extends AdminAppController
 
     public function store(Request $request)
     {
-//        dd($request->except(['_token']));
 
         $directory = Directory::find($request->directory_id);
         $fields = $directory->fields()->get();
@@ -88,7 +87,7 @@ class AdminArticleController extends AdminAppController
         }
 
         $article->save();
-
+        flash('New Article Created')->success();
         return redirect('admin/articles');
 
 
@@ -104,6 +103,7 @@ class AdminArticleController extends AdminAppController
     public function deleteLinkedCategories(Request $request,$article_id,$category_id)
     {
         ArticleCategory::where('article_id',$article_id)->where('category_id',$category_id)->delete();
+        flash('Category UnLinked')->error();
         return redirect()->route('articles.index');
 
 
@@ -134,6 +134,7 @@ class AdminArticleController extends AdminAppController
                $article_category->save();
 
            }
+           flash('Article Updated')->warning();
            return redirect()->route('articles.index');
        }
 
@@ -158,6 +159,7 @@ class AdminArticleController extends AdminAppController
                $article->image = $filename;
            }
            $article->save();
+           flash('Article Updated')->warning();
            return redirect()->route('articles.index');
 
        }
@@ -171,6 +173,7 @@ class AdminArticleController extends AdminAppController
     {
         $deletedRows = DB::table('article_category')->where('article_id', $id)->delete();
         DB::table('articles')->where('id',$id)->delete();
+        flash('Article Deleted')->error();
         return back();
     }
 }
