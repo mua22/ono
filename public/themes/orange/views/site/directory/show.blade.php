@@ -8,7 +8,7 @@
         </div>
         <div class="row">
 
-            @foreach($categories as $category)
+            @foreach($dircategories as $category)
 
                 <div class="col-md-3 card hoverable col-lg-offset-1 "
                      style="margin-bottom: 20px;min-height: 50px">

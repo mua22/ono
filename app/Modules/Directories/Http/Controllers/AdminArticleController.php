@@ -27,7 +27,7 @@ class AdminArticleController extends AdminAppController
     public function index()
     {
         $this->page_title('Browse All Articles');
-        $articles = Article::all();
+        $articles = Article::paginate(8);
         $categories = Category::all();
         $article_categories =ArticleCategory::all();
         return view('directories::articles.index',compact('articles','article_categories','categories'));

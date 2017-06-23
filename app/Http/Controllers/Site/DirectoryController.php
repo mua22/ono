@@ -67,10 +67,11 @@ class DirectoryController extends Controller
         }
 
         $directory = Directory::findBySlug($directory);
-        $categories = $directory->categories()->get();
+        $dircategories = $directory->categories()->get();
+        $categories = Category::all();
         $articles = ArticleCategory::all();
         $directories = Directory::all();
-        return Theme::view('site.directory.show')->with(compact('directories','categories','directory','articles'));
+        return Theme::view('site.directory.show')->with(compact('directories','categories','directory','articles','dircategories'));
 
     }
 

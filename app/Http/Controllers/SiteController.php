@@ -26,7 +26,7 @@ class SiteController extends Controller
     public function home()
     {
 
-        $categories = DB::table('categories')->orderBy('id', 'desc')->take(5)->get();
+        $categories = DB::table('categories')->orderBy('id', 'desc')->get();
         $articles = Article::orderBy('id', 'desc')->take(4)->get();
         $directories = Directory::all();
         return Theme::view('dashboard.index',compact('articles','categories','directories'));

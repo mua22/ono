@@ -19,9 +19,9 @@ class ModuleServiceProvider extends ServiceProvider
         $this->loadMigrationsFrom(__DIR__.'/../Database/Migrations', 'users');
         $menu = Menu::get('admin');
         $menu->add('Users', '#')->icon('users')->data('order',997);
-        $menu->users->add('Users', route('users.index'))->icon('users')->data('order',777);
-        $menu->users->add('Roles', route('roles.index'))->icon('user')->data('order',777);
-        $menu->users->add('Permissions', route('permissions.index'))->icon('user')->data('order',777);
+        $menu->users->add('View Users', route('users.index'))->icon('users')->data('order',777);
+        /*$menu->users->add('Roles', route('roles.index'))->icon('user')->data('order',777);
+        $menu->users->add('Permissions', route('permissions.index'))->icon('user')->data('order',777);*/
     }
 
     /**
